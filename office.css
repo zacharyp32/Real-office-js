@@ -1,0 +1,169 @@
+
+html {
+  background: black;
+  color: aqua;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  input {
+    padding: 0.3em;
+    margin: 0.5em;
+    font-size: 0.65em;
+  }
+  
+  button {
+    font-size: 1em;
+  }
+  
+  /* ------------------ */
+  
+  .header {
+    margin-top: -0.2em;
+  }
+  
+  .empty-space {
+    margin-top: -1em;
+  }
+  
+  .real-inputs {
+    width: 4em;
+  }
+  
+  .big-inputs{
+    width: 11em;
+  }
+  
+  .heady {
+    color: pink;
+    font-size: 1em;
+    margin-bottom: -0.04em;
+  }
+  
+  .header {
+    color: pink;
+  }
+  
+  .inputs {
+    font-size: 1em;
+  }
+  
+  .input-lists {
+    /* display: none; */
+  }
+  
+  #notes {
+  }
+  
+  #notes-id {
+    grid-column: 1/5;
+  }
+  
+  .id-all {
+    font-size: 0.6em;
+    padding: 0.3em;
+    border: 1px solid white;
+    border-radius: 4px;
+    justify-self: center;
+  
+    margin: auto;
+    display: none;
+  }
+  
+  .header {
+    font-size: 1.3em;
+  }
+  
+  header,
+  footer {
+    margin: auto;
+  }
+  
+  .button-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+  
+  header {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  
+  .grid-span {
+    display: grid;
+    justify-content: center;
+    grid-gap: 0.1em;
+  }
+  
+  footer {
+    display: grid;
+    grid-template-columns: 10em 1fr 10em;
+  }
+  
+  .thing-show {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-column: 2/3;
+    grid-gap: 0.1em;
+  }
+  
+  
+  /* Greater than 600px --------------------------------------------------*/
+  
+  @media only screen and (min-width: 600px) {
+  
+    .id-all {
+      font-size: 0.8em;
+    }
+    
+     footer {
+      grid-template-columns: 1fr minmax(100px, 900px) 1fr;
+    }
+  
+    .thing-show {
+      grid-template-columns: repeat(4, minmax(100px, 500px));
+      grid-column: 2/3;
+    }
+  
+    #notes-id {
+      grid-column: 1/4;
+    }
+  }
+  
+  /* Greater than 760px --------------------------------------------------*/
+  
+  @media only screen and (min-width: 760px) {
+    .grid-span {
+      grid-template-columns: repeat(2, minmax(100px, 1fr));
+    }
+    header {
+      grid-template-columns: 10em 1fr 10em;
+    }
+  }
+  
+  /* Greater than 1050px --------------------------------------------------*/
+  
+  @media only screen and (min-width: 1050px) {
+    footer {
+      grid-template-columns: 20px 1fr 20px;
+    }
+    header {
+      grid-template-columns: 20em 1fr 20em;
+    }
+  }
+  
+  /* Greater than 1270px --------------------------------------------------*/
+  
+  /* On my pixel ruler app, on my tv, about 1550px is === 1270px */
+  @media only screen and (min-width: 1270px) {
+    .grid-span {
+      grid-template-columns: repeat(3, minmax(100px, 1fr));
+    }
+  }
+  
+  
+  
