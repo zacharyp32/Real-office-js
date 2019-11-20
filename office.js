@@ -1,5 +1,5 @@
+      
 
-    
     function paperWork() {
       //Grab HTML elements--------------------------------------
       const dateInput = document.getElementById("date-input");
