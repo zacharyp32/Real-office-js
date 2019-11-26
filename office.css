@@ -98,11 +98,23 @@ header {
   grid-gap: 0.1em;
 }
 
+.input-wrapper{
+  margin: auto;
+}
+
 .thing-show {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   grid-column: 2/3;
   grid-gap: 0.1em;
+}
+
+button{
+  margin: 1em;
+}
+
+#paperwork-button{
+  margin-bottom: 2em;
 }
 
 /* Greater than 600px --------------------------------------------------*/
