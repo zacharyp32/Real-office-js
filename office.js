@@ -3,9 +3,17 @@ function paperWork() {
   const dateInput = document.getElementById("date-input");
   const adrInput = document.getElementById("address-input");
   const companyInput = document.getElementById("company-input");
+
   const systemIdInput = document.getElementById("unit-num-input");
   const packUnitCheck = document.getElementById("punit-check-input");
   const miniSplitCheck = document.getElementById("mini-check-input");
+
+  const returnLocInput = document.getElementById("return-loc-input");
+  const supplyLocInput = document.getElementById("supply-loc-input");
+  const rValueinput = document.getElementById("r-value-input");
+  const numFilterInput = document.getElementById("num-filter-input");
+  const locFilterInput = document.getElementById("loc-filter-input");
+  const fortyFeetCheck = document.getElementById("forty-feet-input");
 
   const furInMake = document.getElementById("furnace-input");
   const acInMake = document.getElementById("a/c-input");
@@ -36,9 +44,11 @@ function paperWork() {
   const t1Input = document.getElementById("t1-input");
   const t2Input = document.getElementById("t2-input");
   const rqSubInput = document.getElementById("rq-s-input");
+
   const inputAirflow = document.getElementById("input-airflow");
   const treeHundCheck = document.getElementById("300-check");
   const treeFidCheck = document.getElementById("350-check");
+  const iaqInput = document.getElementById("iaq-input");
   const flowRCheck = document.getElementById("flow-remed-check");
 
   const bdInput = document.getElementById("bd-input");
@@ -58,6 +68,7 @@ function paperWork() {
   const furId = document.getElementById("fur-id");
   const acId = document.getElementById("ac-id");
   const ductId = document.getElementById("duct-id");
+  const ductInfoId = document.getElementById("duct-info-id");
   const rcaId = document.getElementById("rca-id");
   const airflowId = document.getElementById("airflow-id");
   const bdId = document.getElementById("bd-id");
@@ -76,6 +87,7 @@ function paperWork() {
   const furAnsWrapper = document.getElementById("fur-ans-wrapper");
   const acAnsWrapper = document.getElementById("ac-ans-wrapper");
   const leakAnsWrapper = document.getElementById("leak-ans-wrapper");
+  const ductInfoWrapper = document.getElementById("duct-info-wrapper");
   const rcaAnsWrapper = document.getElementById("rca-ans-wrapper");
   const flowAnsWrapper = document.getElementById("flow-ans-wrapper");
   const bdAnsWrapper = document.getElementById("bd-ans-wrapper");
@@ -88,6 +100,7 @@ function paperWork() {
   furAnsWrapper.innerHTML = "";
   acAnsWrapper.innerHTML = "";
   leakAnsWrapper.innerHTML = "";
+  ductInfoWrapper.innerHTML = "";
   rcaAnsWrapper.innerHTML = "";
   flowAnsWrapper.innerHTML = "";
   bdAnsWrapper.innerHTML = "";
@@ -100,14 +113,13 @@ function paperWork() {
   furId.style.display = "none";
   acId.style.display = "none";
   ductId.style.display = "none";
+  ductInfoId.style.display = "none";
   rcaId.style.display = "none";
   airflowId.style.display = "none";
   bdId.style.display = "none";
   fwdId.style.display = "none";
   statusId.style.display = "none";
   notesId.style.display = "none";
-
-  qcId.style.display = "block";
 
   if (dateInput.value) {
     genId.style.display = "block";
@@ -309,6 +321,12 @@ function paperWork() {
     flowAnsWrapper.appendChild(tresHundShow);
   }
 
+  if (iaqInput.value) {
+    let iaqShow = document.createElement("p");
+    iaqShow.textContent = "IAQ: " + iaqInput.value;
+    flowAnsWrapper.appendChild(iaqShow);
+  }
+
   if (flowRCheck.checked) {
     let remedAirShow = document.createElement("p");
     remedAirShow.textContent = "Airflow Remediation: Yes";
@@ -327,6 +345,41 @@ function paperWork() {
     fwdShow.textContent = "Result: " + fwdInput.value;
     fwdAnsWrapper.appendChild(fwdShow);
   }
+
+// ----------------------------------------------------------------
+
+  if (returnLocInput.value) {
+    ductInfoId.style.display='block'
+    let returnLocShow = document.createElement("p");
+    let supplyLocShow = document.createElement("p");
+    let numFilterShow = document.createElement("p");
+    let locFilterShow = document.createElement("p");
+    returnLocShow.textContent =
+      "Return Ducting Location: " + returnLocInput.value;
+    supplyLocShow.textContent =
+      "Supply Ducting Location: " + supplyLocInput.value;
+    numFilterShow.textContent = "Number of Filters: " + numFilterInput.value;
+    locFilterShow.textContent =
+      "Location of Filter(s): " + locFilterInput.value;
+    ductInfoId.appendChild(returnLocShow);
+    ductInfoId.appendChild(supplyLocShow);
+    ductInfoId.appendChild(numFilterShow);
+    ductInfoId.appendChild(locFilterShow);
+  }
+  if (rValueinput.value) {
+    ductInfoId.style.display='block'
+    let rShow = document.createElement("p");
+    rShow.textContent = "R-Value: " + rValueinput.value;
+    ductInfoId.appendChild(rShow);
+  }
+  if (fortyFeetCheck.checked) {
+    ductInfoId.style.display='block'
+    let fortyShow = document.createElement("p");
+    fortyShow.textContent = "New Ducts < 40Ft: Yes";
+    ductInfoId.appendChild(fortyShow);
+  }
+
+// --------------------------------------------------------------------------
 
   if (passCheck.checked) {
     statusId.style.display = "block";
@@ -352,31 +405,43 @@ function paperWork() {
     notesAnsWrapper.appendChild(openShow);
   }
 
+  // -----------------------------------------------------------------
+  let qcCheckedBool = false;
+
   if (lockCapsCheck.checked === false) {
+    qcCheckedBool = true;
     let capsShow = document.createElement("p");
     capsShow.textContent = "Locking Caps: No";
     qcAnsWrapper.appendChild(capsShow);
   }
   if (acSecureCheck.checked === false) {
+    qcCheckedBool = true;
     let secureShow = document.createElement("p");
     secureShow.textContent = "A/C Secured To Pad: No";
     qcAnsWrapper.appendChild(secureShow);
   }
   if (fuseSizeCheck.checked === false) {
+    qcCheckedBool = true;
     let fuseShow = document.createElement("p");
     fuseShow.textContent = "Fuse Size Correct: No";
     qcAnsWrapper.appendChild(fuseShow);
   }
   if (smokeDetectCheck.checked === false) {
+    qcCheckedBool = true;
     let detectShow = document.createElement("p");
     detectShow.textContent = "CO/Smoke Detectors: No";
     qcAnsWrapper.appendChild(detectShow);
   }
   if (gasLegCheck.checked === false) {
+    qcCheckedBool = true;
     let gasLegShow = document.createElement("p");
     gasLegShow.textContent = "Gas Drip Leg: No";
     qcAnsWrapper.appendChild(gasLegShow);
   }
+
+  qcCheckedBool === true
+    ? (qcId.style.display = "block")
+    : (qcId.style.display = "none");
 
   // blankInputs(climateZone, tons, inputBtu, furnaceEff, outputBtu, inputAirflow, leakage, fwD, notes)
 

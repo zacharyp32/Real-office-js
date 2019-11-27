@@ -44,6 +44,30 @@
           </label>
         </div>
 
+        <!-- ---------------------------------------------------------------------- -->
+
+        <div class="input-wrapper duct-info">
+          <h3 class="heady">Ductwork Info</h3>
+          <label for="return-loc-input">
+            <input type="text" id="return-loc-input" class="real-inputs">
+          Return Ducting Location</label>
+          <label for="supply-loc-input">
+            <input type="text" id="supply-loc-input" class="real-inputs">
+            Supply Ducting Location</label>
+          <label for="r-value-input">
+            <input type="text" id="r-value-input" class="real-inputs">
+          R-Value</label>
+          <label for="num-filter-input">
+            <input type="text" id="num-filter-input" class="real-inputs">
+          Number of Filters</label>
+          <label for="loc-filter-input">
+            <input type="text" id="loc-filter-input" class="real-inputs">
+          Filter Location</label>
+          <label for="forty-feet-input">
+            <input type="checkbox" id="forty-feet-input" class="real-inputs">
+          Less Than 40ft</label>
+        </div>
+
         <!-- ------------------------------------------------------------------------------------- -->
 
         <div class="input-wrapper furnace">
@@ -162,6 +186,9 @@
           <br />
           <input id="350-check" type="checkbox" class="real-inputs" />350 CFM
           <br />
+          <label for="iaq-input">
+            <input type="text" id="iaq-input" class="real-inputs">IAQ
+          </label> <br>
           <input
             id="flow-remed-check"
             type="checkbox"
@@ -179,7 +206,7 @@
 
         <div class="input-wrapper fwd">
           <h3 class="heady">Fan-Watt-Draw</h3>
-          <input id="fan-w-draw" type="text" class="real-inputs" />Reading<br />
+          <input id="fan-w-draw" type="text" class="real-inputs" />Result<br />
         </div>
 
         <!-- ========================================================================== -->
@@ -273,16 +300,18 @@
           <h3 class="header">Fan Watt Draw</h3>
           <div class="empty-space" id="fwd-ans-wrapper"></div>
         </div>
-        <div id="status-id" class="id-all">
-          <h3 class="header">Job Status</h3>
-          <div class="empty-space" id="stat-ans-wrapper"></div>
+        <div id="duct-info-id" class="id-all">
+          <h3 class="header">Ductwork Info</h3>
+          <div class="empty-space" id="duct-info-wrapper"></div>
         </div>
-
         <div id="qc-id" class="id-all">
           <h3 class="header">QC</h3>
           <div class="empty-space" id="qc-ans-wrapper"></div>
         </div>
-
+        <div id="status-id" class="id-all">
+          <h3 class="header">Job Status</h3>
+          <div class="empty-space" id="stat-ans-wrapper"></div>
+        </div>
         <div id="notes-id" class="id-all">
           <h3 class="header">Notes</h3>
           <div class="empty-space" id="notes-ans-wrapper"></div>
