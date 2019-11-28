@@ -105,6 +105,8 @@ header {
 
 .input-wrapper{
   margin: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .thing-show {

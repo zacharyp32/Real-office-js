@@ -7,22 +7,36 @@ function paperWork() {
   const systemIdInput = document.getElementById("unit-num-input");
   const packUnitCheck = document.getElementById("punit-check-input");
   const miniSplitCheck = document.getElementById("mini-check-input");
+  const furnaceCheck = document.getElementById("furnace-check");
+  const coilCheck = document.getElementById("coil-check");
+  const condenserCheck = document.getElementById("condenser-check");
+  const ductsCheck = document.getElementById("ducts-check");
 
   const returnLocInput = document.getElementById("return-loc-input");
   const supplyLocInput = document.getElementById("supply-loc-input");
   const rValueinput = document.getElementById("r-value-input");
   const numFilterInput = document.getElementById("num-filter-input");
   const locFilterInput = document.getElementById("loc-filter-input");
-  const fortyFeetCheck = document.getElementById("forty-feet-input");
 
   const furInMake = document.getElementById("furnace-input");
-  const acInMake = document.getElementById("a/c-input");
   const furInModel = document.getElementById("furnace-model-input");
-  const acInModel = document.getElementById("ac-model-input");
   const furInSerial = document.getElementById("furnace-serial-input");
+
+  const evapInMake = document.getElementById("evap-make-input");
+  const evapInModel = document.getElementById("evap-model-input");
+  const evapInSerial = document.getElementById("evap-serial-input");
+  // const evapInSeer = document.getElementById("seer-evap");
+  // const evapInEer = document.getElementById("eer-evap");
+  // const evapInTons = document.getElementById("tons-evap");
+
+  const acInMake = document.getElementById("a/c-input");
+  const acInModel = document.getElementById("ac-model-input");
   const acInSerial = document.getElementById("ac-serial-input");
   const seerInput = document.getElementById("seer-input");
+  const eerInput = document.getElementById("eer-input");
   const tempInput = document.getElementById("temp-input");
+  const indoorTempI=document.getElementById('indoor-temp-input')
+  const tons = document.getElementById("tons");
 
   const cutInCheck = document.getElementById("cutin-check");
   const replaceCheck = document.getElementById("replace-check");
@@ -30,7 +44,12 @@ function paperWork() {
   const newCheck = document.getElementById("new-check");
   const commercialCheck = document.getElementById("commercial-check");
 
+  const fortyFeetCheck = document.getElementById("forty-feet-input");
+  const prevTestedCheck = document.getElementById("already-tested");
+  const asbestos = document.getElementById("a-b");
+
   const dlTargetInput = document.getElementById("dlt-input");
+  const leakage = document.getElementById("leakage");
   const openCheck = document.getElementById("open-check");
   const pbsCheck = document.getElementById("pbs-check");
   const leakOutside = document.getElementById("leak-outside-check");
@@ -59,15 +78,14 @@ function paperWork() {
   const notes = document.getElementById("notes");
   const inputBtu = document.getElementById("input-btu");
   const outputBtu = document.getElementById("output-btu");
-  const tons = document.getElementById("tons");
   const furnaceEff = document.getElementById("furnace-eff");
-  const asbestos = document.getElementById("a-b");
-  const leakage = document.getElementById("leakage");
 
   const genId = document.getElementById("general-id");
   const furId = document.getElementById("fur-id");
+  const evapId = document.getElementById("evap-id");
   const acId = document.getElementById("ac-id");
   const ductId = document.getElementById("duct-id");
+  const ductExId = document.getElementById("duct-exempt-id");
   const ductInfoId = document.getElementById("duct-info-id");
   const rcaId = document.getElementById("rca-id");
   const airflowId = document.getElementById("airflow-id");
@@ -83,10 +101,14 @@ function paperWork() {
   const smokeDetectCheck = document.getElementById("smoke-detect-check");
   const gasLegCheck = document.getElementById("gas-leg-check");
 
+  const hardWiredCheck = document.getElementById("hard-wired");
+
   const genAnsWrapper = document.getElementById("gen-ans-wrapper");
   const furAnsWrapper = document.getElementById("fur-ans-wrapper");
+  const evapAnsWrapper = document.getElementById("evap-ans-wrapper");
   const acAnsWrapper = document.getElementById("ac-ans-wrapper");
   const leakAnsWrapper = document.getElementById("leak-ans-wrapper");
+  const ductExWrapper = document.getElementById("duct-exempt-wrapper");
   const ductInfoWrapper = document.getElementById("duct-info-wrapper");
   const rcaAnsWrapper = document.getElementById("rca-ans-wrapper");
   const flowAnsWrapper = document.getElementById("flow-ans-wrapper");
@@ -97,9 +119,11 @@ function paperWork() {
   const notesAnsWrapper = document.getElementById("notes-ans-wrapper");
 
   genAnsWrapper.innerHTML = "";
+  evapAnsWrapper.innerHTML = "";
   furAnsWrapper.innerHTML = "";
   acAnsWrapper.innerHTML = "";
   leakAnsWrapper.innerHTML = "";
+  ductExWrapper.innerHTML = "";
   ductInfoWrapper.innerHTML = "";
   rcaAnsWrapper.innerHTML = "";
   flowAnsWrapper.innerHTML = "";
@@ -111,14 +135,17 @@ function paperWork() {
 
   genId.style.display = "none";
   furId.style.display = "none";
+  evapId.style.display = "none";
   acId.style.display = "none";
   ductId.style.display = "none";
+  ductExId.style.display = "none";
   ductInfoId.style.display = "none";
   rcaId.style.display = "none";
   airflowId.style.display = "none";
   bdId.style.display = "none";
   fwdId.style.display = "none";
   statusId.style.display = "none";
+  qcId.style.display = "none";
   notesId.style.display = "none";
 
   if (dateInput.value) {
@@ -137,11 +164,6 @@ function paperWork() {
     genAnsWrapper.appendChild(dateShow);
     genAnsWrapper.appendChild(adrShow);
     genAnsWrapper.appendChild(companyShow);
-  }
-  if (asbestos.checked) {
-    let asbShow = document.createElement("p");
-    asbShow.textContent = "Asbestos: Yes";
-    genAnsWrapper.appendChild(asbShow);
   }
 
   // -----------------------------------------------------------------------
@@ -182,7 +204,8 @@ function paperWork() {
       inputBtu,
       outputBtu,
       tons,
-      seerInput
+      seerInput,
+      eerInput
     );
   else if (miniSplitCheck.checked)
     showMiniSplit(
@@ -193,7 +216,8 @@ function paperWork() {
       inputBtu,
       outputBtu,
       tons,
-      seerInput
+      seerInput,
+      eerInput
     );
   else {
     if (furInMake.value) {
@@ -220,6 +244,36 @@ function paperWork() {
       furAnsWrapper.appendChild(oBShow);
     }
 
+    // -------------------------------------------------------------------------------
+
+    if (evapInMake.value) {
+      evapId.style.display = "block";
+      let acShow = document.createElement("p");
+      let acModShow = document.createElement("p");
+      let acSerialShow = document.createElement("p");
+      let tonsShow = document.createElement("p");
+      acShow.textContent = "Make: " + evapInMake.value;
+      acModShow.textContent = "Model: " + evapInModel.value;
+      acSerialShow.textContent = "Serial: " + evapInSerial.value;
+      tonsShow.textContent = "Tonnage: " + evapInTons.value;
+      evapAnsWrapper.appendChild(acShow);
+      evapAnsWrapper.appendChild(acModShow);
+      evapAnsWrapper.appendChild(acSerialShow);
+      evapAnsWrapper.appendChild(tonsShow);
+      // if (evapInSeer.value) {
+      //   let seerShow = document.createElement("p");
+      //   seerShow.textContent = "SEER: " + seerInput.value;
+      //   evapAnsWrapper.appendChild(seerShow);
+      // }
+      // if (evapInEer.value) {
+      //   let eerShow = document.createElement("p");
+      //   eerShow.textContent = "EER: " + eerInput.value;
+      //   evapAnsWrapper.appendChild(eerShow);
+      // }
+    }
+
+    // -------------------------------------------------------------------------------------
+
     if (acInMake.value) {
       acId.style.display = "block";
       let acShow = document.createElement("p");
@@ -239,13 +293,46 @@ function paperWork() {
         seerShow.textContent = "SEER: " + seerInput.value;
         acAnsWrapper.appendChild(seerShow);
       }
+      if (eerInput.value) {
+        let eerShow = document.createElement("p");
+        eerShow.textContent = "EER: " + eerInput.value;
+        acAnsWrapper.appendChild(eerShow);
+      }
       if (tempInput.value) {
         let tempShow = document.createElement("p");
         tempShow.textContent = "Outdoor Temp: " + tempInput.value;
         acAnsWrapper.appendChild(tempShow);
       }
+      if(indoorTempI.value){
+        let tempShow = document.createElement("p");
+        tempShow.textContent = "Indoor Temp: " + indoorTempI.value;
+        acAnsWrapper.appendChild(tempShow);        
+      }
     }
   }
+
+  // -------------------------------------------------------------------------
+
+  if (prevTestedCheck.checked) {
+    ductExId.style.display = "block";
+    let preTestedShow = document.createElement("p");
+    preTestedShow.textContent = "Previously HERS Verified";
+    ductExWrapper.appendChild(preTestedShow);
+  }
+  if (fortyFeetCheck.checked) {
+    ductExId.style.display = "block";
+    let fortyShow = document.createElement("p");
+    fortyShow.textContent = "New Ducts < 40Ft";
+    ductExWrapper.appendChild(fortyShow);
+  }
+  if (asbestos.checked) {
+    ductExId.style.display = "block";
+    let asbShow = document.createElement("p");
+    asbShow.textContent = "Asbestos: Yes";
+    ductExWrapper.appendChild(asbShow);
+  }
+
+  // ------------------------------------------------------------------------
 
   if (leakage.value) {
     ductId.style.display = "block";
@@ -346,10 +433,10 @@ function paperWork() {
     fwdAnsWrapper.appendChild(fwdShow);
   }
 
-// ----------------------------------------------------------------
+  // ----------------------------------------------------------------
 
   if (returnLocInput.value) {
-    ductInfoId.style.display='block'
+    ductInfoId.style.display = "block";
     let returnLocShow = document.createElement("p");
     let supplyLocShow = document.createElement("p");
     let numFilterShow = document.createElement("p");
@@ -367,19 +454,13 @@ function paperWork() {
     ductInfoId.appendChild(locFilterShow);
   }
   if (rValueinput.value) {
-    ductInfoId.style.display='block'
+    ductInfoId.style.display = "block";
     let rShow = document.createElement("p");
     rShow.textContent = "R-Value: " + rValueinput.value;
     ductInfoId.appendChild(rShow);
   }
-  if (fortyFeetCheck.checked) {
-    ductInfoId.style.display='block'
-    let fortyShow = document.createElement("p");
-    fortyShow.textContent = "New Ducts < 40Ft: Yes";
-    ductInfoId.appendChild(fortyShow);
-  }
 
-// --------------------------------------------------------------------------
+  // --------------------------------------------------------------------------
 
   if (passCheck.checked) {
     statusId.style.display = "block";
@@ -406,42 +487,46 @@ function paperWork() {
   }
 
   // -----------------------------------------------------------------
-  let qcCheckedBool = false;
 
-  if (lockCapsCheck.checked === false) {
-    qcCheckedBool = true;
+  if (condenserCheck.checked && lockCapsCheck.checked === false) {
+    qcId.style.display = "block";
     let capsShow = document.createElement("p");
     capsShow.textContent = "Locking Caps: No";
     qcAnsWrapper.appendChild(capsShow);
   }
-  if (acSecureCheck.checked === false) {
-    qcCheckedBool = true;
+  if (condenserCheck.checked && acSecureCheck.checked === false) {
+    qcId.style.display = "block";
     let secureShow = document.createElement("p");
     secureShow.textContent = "A/C Secured To Pad: No";
     qcAnsWrapper.appendChild(secureShow);
   }
-  if (fuseSizeCheck.checked === false) {
-    qcCheckedBool = true;
+  if (condenserCheck.checked && fuseSizeCheck.checked === false) {
+    qcId.style.display = "block";
     let fuseShow = document.createElement("p");
     fuseShow.textContent = "Fuse Size Correct: No";
     qcAnsWrapper.appendChild(fuseShow);
   }
   if (smokeDetectCheck.checked === false) {
-    qcCheckedBool = true;
+    qcId.style.display = "block";
     let detectShow = document.createElement("p");
     detectShow.textContent = "CO/Smoke Detectors: No";
     qcAnsWrapper.appendChild(detectShow);
   }
-  if (gasLegCheck.checked === false) {
-    qcCheckedBool = true;
+  if (furnaceCheck.checked && gasLegCheck.checked === false) {
+    qcId.style.display = "block";
     let gasLegShow = document.createElement("p");
     gasLegShow.textContent = "Gas Drip Leg: No";
     qcAnsWrapper.appendChild(gasLegShow);
   }
 
-  qcCheckedBool === true
-    ? (qcId.style.display = "block")
-    : (qcId.style.display = "none");
+  // ---------------------------------------------------------------------
+
+  if (hardWiredCheck.checked) {
+    notesId.style.display = "block";
+    let hWiredShow = document.createElement("p");
+    hWiredShow.textContent("Furnace Hard-Wired");
+    notesAnsWrapper.appendChild(hWiredShow);
+  }
 
   // blankInputs(climateZone, tons, inputBtu, furnaceEff, outputBtu, inputAirflow, leakage, fwD, notes)
 
@@ -456,7 +541,8 @@ function showPackageUnit(
   inputBtu,
   outputBtu,
   tons,
-  seerInput
+  seerInput,
+  eerInput
 ) {
   const packUnitId = document.getElementById("pack-unit-id");
   const packUnitAnsWrapper = document.getElementById("pac-unit-ans-wrapper");
@@ -493,6 +579,11 @@ function showPackageUnit(
       seerShow.textContent = "SEER: " + seerInput.value;
       packUnitAnsWrapper.appendChild(seerShow);
     }
+    if (eerInput.value) {
+      let eerShow = document.createElement("p");
+      eerShow.textContent = "EER: " + eerInput.value;
+      acAnsWrapper.appendChild(eerShow);
+    }
   }
 }
 
@@ -504,7 +595,8 @@ function showMiniSplit(
   inputBtu,
   outputBtu,
   tons,
-  seerInput
+  seerInput,
+  eerInput
 ) {
   const miniSplitId = document.getElementById("mini-split-id");
   const miniSplitAnsWrapper = document.getElementById("mini-split-ans-wrapper");
@@ -540,6 +632,11 @@ function showMiniSplit(
       let seerShow = document.createElement("p");
       seerShow.textContent = "SEER: " + seerInput.value;
       miniSplitAnsWrapper.appendChild(seerShow);
+    }
+    if (eerInput.value) {
+      let eerShow = document.createElement("p");
+      eerShow.textContent = "EER: " + eerInput.value;
+      acAnsWrapper.appendChild(eerShow);
     }
   }
 }

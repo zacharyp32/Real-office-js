@@ -11,99 +11,153 @@
 
   <body>
     <header>
-      <br />
       <div class="grid-span">
         <div class="input-wrapper general">
           <h3 class="heady">General</h3>
-          <input id="date-input" type="text" class="real-inputs" />Date <br />
-          <input id="address-input" type="text" class="big-inputs" />Address
-          <br />
-          <input id="company-input" type="text" class="big-inputs" />Company
-          <br />
+          <label for="date-input">
+            <input id="date-input" type="text" class="real-inputs" />Date
+          </label>
+          <label for="address-input">
+            <input id="address-input" type="text" class="big-inputs" />Address
+          </label>
+          <label for="company-input">
+            <input id="company-input" type="text" class="big-inputs" />Company
+          </label>
         </div>
 
-<!-- ----------------------------------------------------------------------------------- -->
+        <!-- ----------------------------------------------------------------------------------- -->
 
         <div class="input-wrapper system">
-          <h3 class="heady">System</h3>
+          <h3 class="heady">Installed</h3>
           <label for="unit-num-input" class="labels">
             <input id="unit-num-input" type="text" class="real-inputs" /> System
-            Name <br />
+            Name
           </label>
           <label for="split-check-input" class="labels">
             <input id="split-check-input" type="checkbox" class="real-inputs" />
-            Split <br />
+            Split
           </label>
           <label for="punit-check-input" class="labels">
             <input id="punit-check-input" type="checkbox" class="real-inputs" />
-            Package <br />
+            Package
           </label>
           <label for="mini-check-input" class="labels">
             <input id="mini-check-input" type="checkbox" class="real-inputs" />
-            Mini-Split <br />
+            Mini-Split
           </label>
-        </div>
-
-        <!-- ---------------------------------------------------------------------- -->
-
-        <div class="input-wrapper duct-info">
-          <h3 class="heady">Ductwork Info</h3>
-          <label for="return-loc-input">
-            <input type="text" id="return-loc-input" class="real-inputs">
-          Return Ducting Location</label>
-          <label for="supply-loc-input">
-            <input type="text" id="supply-loc-input" class="real-inputs">
-            Supply Ducting Location</label>
-          <label for="r-value-input">
-            <input type="text" id="r-value-input" class="real-inputs">
-          R-Value</label>
-          <label for="num-filter-input">
-            <input type="text" id="num-filter-input" class="real-inputs">
-          Number of Filters</label>
-          <label for="loc-filter-input">
-            <input type="text" id="loc-filter-input" class="real-inputs">
-          Filter Location</label>
-          <label for="forty-feet-input">
-            <input type="checkbox" id="forty-feet-input" class="real-inputs">
-          Less Than 40ft</label>
+          <label for="furnace-check">
+            <input type="checkbox" id="furnace-check" />Furnace
+          </label>
+          <label for="coil-check">
+            <input type="checkbox" id="coil-check" />Evap Coil
+          </label>
+          <label for="condenser-check">
+            <input type="checkbox" id="condenser-check" />Condenser
+          </label>
+          <label for="ducts-check">
+            <input type="checkbox" id="ducts-check" />Ducts
+          </label>
         </div>
 
         <!-- ------------------------------------------------------------------------------------- -->
 
         <div class="input-wrapper furnace">
           <h3 id="furnace-text" class="heady">Heat</h3>
-          <input id="furnace-input" type="text" class="real-inputs" />Make<br />
-
-          <input type="text" id="furnace-model-input" class="big-inputs" />Model
-          Number <br />
-          <input
-            type="text"
-            id="furnace-serial-input"
-            class="big-inputs"
-          />Serial Number <br />
-
-          <input id="furnace-eff" type="text" class="real-inputs" />AFUE <br />
-          <input id="input-btu" type="text" class="real-inputs" />Input BTU<br />
-          <input id="output-btu" type="text" class="real-inputs" />Output BTU<br />
+          <label for="furnace-input">
+            <input id="furnace-input" type="text" class="real-inputs" />Make
+          </label>
+          <label for="furnace-model-input">
+            <input
+              type="text"
+              id="furnace-model-input"
+              class="big-inputs"
+            />Model Number
+          </label>
+          <label for="furnace-serial-input">
+            <input
+              type="text"
+              id="furnace-serial-input"
+              class="big-inputs"
+            />Serial Number
+          </label>
+          <label for="furnace-eff">
+            <input id="furnace-eff" type="text" class="real-inputs" />AFUE
+          </label>
+          <label for="input-btu">
+            <input id="input-btu" type="text" class="real-inputs" />Input BTU
+          </label>
+          <label for="output-btu">
+            <input id="output-btu" type="text" class="real-inputs" />Output BTU
+          </label>
         </div>
 
+        <!-- ------------------------------------------------------------------- -->
+        <div class="input-wrapper coil">
+          <h3 class="heady">Evaporator Coil</h3>
+          <label for="evap-make-input">
+            <input id="evap-make-input" type="text" class="real-inputs" />Make
+          </label>
+          <label for="evap-model-input">
+            <input type="text" id="evap-model-input" class="big-inputs" />Model
+            Number
+          </label>
+          <label for="evap-serial-input">
+            <input
+              type="text"
+              id="evap-serial-input"
+              class="big-inputs"
+            />Serial Number
+          </label>
+          <!-- <label for="seer-evap">
+            <input id="seer-evap" type="text" class="real-inputs" />SEER
+          </label>
+          <label for="eer-evap">
+            <input type="text" id="eer-evap" class="real-inputs" />EER
+          </label>
+          <label for="tons-evap">
+            <input id="tons-evap" type="text" class="real-inputs" />Tons
+          </label> -->
+        </div>
+        <!-- -------------------------------------------------------------------------- -->
+
         <div class="input-wrapper ac">
-          <h3 class="heady">A/C</h3>
+          <h3 class="heady">A/C | Heat-Pump</h3>
+          <label for="a/c-input">
+            <input id="a/c-input" type="text" class="real-inputs" />Make
+          </label>
 
-          <input id="a/c-input" type="text" class="real-inputs" />Make <br />
+          <label for="ac-model-input">
+            <input type="text" id="ac-model-input" class="big-inputs" />Model
+            Number
+          </label>
+          <label for="ac-serial-input">
+            <input type="text" id="ac-serial-input" class="big-inputs" />Serial
+            Number
+          </label>
 
-          <input type="text" id="ac-model-input" class="big-inputs" />Model
-          Number <br />
-          <input type="text" id="ac-serial-input" class="big-inputs" />Serial
-          Number <br />
-
-          <input id="tons" type="text" class="real-inputs" />Tons<br />
-          <input id="seer-input" type="text" class="real-inputs" />SEER<br />
-          <input
-            id="temp-input"
-            type="text"
-            class="real-inputs"
-          />OutDoor-Temp<br />
+          <label for="seer-input">
+            <input id="seer-input" type="text" class="real-inputs" />SEER
+          </label>
+          <label for="eer-input">
+            <input type="text" id="eer-input" class="real-inputs" />EER
+          </label>
+          <label for="tons">
+            <input id="tons" type="text" class="real-inputs" />Tons
+          </label>
+          <label for="temp-input">
+            <input
+              id="temp-input"
+              type="text"
+              class="real-inputs"
+            />Outdoor-Temp
+          </label>
+          <label for="indoor-temp-input">
+            <input
+              type="text"
+              id="indoor-temp-input"
+              class="real-inputs"
+            />Indoor-Temp
+          </label>
         </div>
 
         <div class="input-wrapper type">
@@ -111,102 +165,184 @@
           <label for="cutin-check" id="label-cutin-check">
             <input type="checkbox" id="cutin-check" />
             Cut-In</label
-          ><br />
+          >
           <label for="replace-check" id="label-replacement-check">
             <input type="checkbox" id="replace-check" />
             Replacement</label
-          ><br />
+          >
           <label for="alt-check" id="label-alteration-check">
             <input type="checkbox" id="alt-check" />
             Alteration</label
-          ><br />
+          >
           <label for="new-check" id="label-new-construction-check">
             <input type="checkbox" id="new-check" />
             New Construction</label
-          ><br />
+          >
           <label for="commercial-check" id="label-commercial-check">
             <input type="checkbox" id="commercial-check" />
             Commercial</label
           >
         </div>
 
+        <!-- ---------------------------------------------------------------------- -->
+
+        <div class="input-wrapper duct-info">
+          <h3 class="heady">Ductwork Info</h3>
+          <label for="return-loc-input">
+            <input type="text" id="return-loc-input" class="real-inputs" />
+            Return Ducting Location</label
+          >
+          <label for="supply-loc-input">
+            <input type="text" id="supply-loc-input" class="real-inputs" />
+            Supply Ducting Location</label
+          >
+          <label for="r-value-input">
+            <input type="text" id="r-value-input" class="real-inputs" />
+            R-Value</label
+          >
+          <label for="num-filter-input">
+            <input type="text" id="num-filter-input" class="real-inputs" />
+            Number of Filters</label
+          >
+          <label for="loc-filter-input">
+            <input type="text" id="loc-filter-input" class="real-inputs" />
+            Filter Location</label
+          >
+        </div>
+
+        <!-- ------------------------------------------------------------------ -->
+
+        <div class="input-wrapper duct-exempt">
+          <h3 class="heady">DLT Exempt</h3>
+          <label for="already-tested">
+            <input type="checkbox" id="already-tested" />
+            Previously HERS Verified
+          </label>
+          <label for="forty-feet-input">
+            <input type="checkbox" id="forty-feet-input" />
+            Less Than 40ft</label
+          >
+          <label for="a-b"> <input id="a-b" type="checkbox" /> Asbestos </label>
+        </div>
+        <!-- --------------------------------------------------------------------- -->
+
         <div class="input-wrapper dlt">
           <h3 class="heady">Duct Leakage Test</h3>
+          <label for="dlt-input">
+            <input
+              id="dlt-input"
+              type="text"
+              class="real-inputs"
+              placeholder="5%.........."
+            />Percent Target
+          </label>
+          <label for="leakage">
+            <input id="leakage" type="text" class="real-inputs" />Measured
+            Leakage
+          </label>
+          <label for="open-check">
+            <input id="open-check" type="checkbox" class="real-inputs" />Open
+            Chaseway
+          </label>
+          <label for="pbs-check">
+            <input id="pbs-check" type="checkbox" class="real-inputs" />Pass By
+            Smoke
+          </label>
 
-          <input
-            id="dlt-input"
-            type="text"
-            class="real-inputs"
-            placeholder="5%.........."
-          />Percent Target<br />
-          <input id="leakage" type="text" class="real-inputs" />Measured
-          Leakage<br />
-          <label for="a-b"> <input id="a-b" type="checkbox" />Asbestos </label>
-          <br />
-          <input id="open-check" type="checkbox" class="real-inputs" />Open
-          Chaseway <br />
-          <input id="pbs-check" type="checkbox" class="real-inputs" />Pass By
-          Smoke <br />
           <label for="leak-outside-check">
             <input
               type="checkbox"
               id="leak-outside-check"
               class="real-inputs"
-            />Leakage to Outside </label
-          ><br />
-          <input id="actual-check" type="checkbox" class="real-inputs" />Actual
-          Airflow Method <br />
+            />Leakage to Outside
+          </label>
+          <label for="actual-check">
+            <input
+              id="actual-check"
+              type="checkbox"
+              class="real-inputs"
+            />Actual Airflow Method
+          </label>
         </div>
 
         <div class="input-wrapper rca">
           <h3 class="heady">RCA</h3>
-          <input id="lp-input" type="text" class="real-inputs" />LPpsi<br />
-          <input id="hp-input" type="text" class="real-inputs" />HPpsi <br />
-          <input id="ev-input" type="text" class="real-inputs" />Ev <br />
-          <input id="co-input" type="text" class="real-inputs" />Co <br />
-          <input id="t1-input" type="text" class="real-inputs" />T1 <br />
-          <input id="t2-input" type="text" class="real-inputs" />T2 <br />
-          <input id="rq-s-input" type="text" class="real-inputs" />Required
-          Subcool <br />
+          <label for="lp-input">
+            <input id="lp-input" type="text" class="real-inputs" />LPpsi
+          </label>
+          <label for="hp-input">
+            <input id="hp-input" type="text" class="real-inputs" />HPpsi
+          </label>
+          <label for="ev-input">
+            <input id="ev-input" type="text" class="real-inputs" />Ev
+          </label>
+          <label for="co-input">
+            <input id="co-input" type="text" class="real-inputs" />Co
+          </label>
+          <label for="t1-input">
+            <input id="t1-input" type="text" class="real-inputs" />T1
+          </label>
+          <label for="t2-input">
+            <input id="t2-input" type="text" class="real-inputs" />T2
+          </label>
+          <label for="rq-s-input">
+            <input id="rq-s-input" type="text" class="real-inputs" />Required
+            Subcool
+          </label>
           <label for="weigh-in" class="labels">
             <input
               type="checkbox"
               id="weigh-in-input"
               class="real-inputs"
-            /> </label
-          >Weigh-In
+            />Weigh-In
+          </label>
         </div>
 
         <!-- ----------------------------------------------------------------- -->
         <div class="input-wrapper flow">
           <h3 class="heady">Airflow</h3>
-          <input id="input-airflow" type="text" class="real-inputs" />Measured
-          Airflow<br />
-          <input id="300-check" type="checkbox" class="real-inputs" />300 CFM
-          <br />
-          <input id="350-check" type="checkbox" class="real-inputs" />350 CFM
-          <br />
+          <label for="input-airflow">
+            <input id="input-airflow" type="text" class="real-inputs" />Measured
+            Airflow
+          </label>
+          <label for="300-check">
+            <input id="300-check" type="checkbox" class="real-inputs" />300 CFM
+          </label>
+          <label for="350-check">
+            <input id="350-check" type="checkbox" class="real-inputs" />350 CFM
+          </label>
+
           <label for="iaq-input">
-            <input type="text" id="iaq-input" class="real-inputs">IAQ
-          </label> <br>
-          <input
-            id="flow-remed-check"
-            type="checkbox"
-            class="real-inputs"
-          />Airflow Remediation <br />
+            <input type="text" id="iaq-input" class="real-inputs" />IAQ
+          </label>
+
+          <label for="flow-remed-check">
+            <input
+              id="flow-remed-check"
+              type="checkbox"
+              class="real-inputs"
+            />Airflow Remediation
+          </label>
         </div>
         <!-- ----------------------------------------------------------------------- -->
 
         <div class="input-wrapper bd">
           <h3 class="heady">Blower Door</h3>
-          <input id="bd-input" type="text" class="real-inputs" />Result <br />
+          <label for="bd-input">
+            <input id="bd-input" type="text" class="real-inputs" />Result
+          </label>
         </div>
 
         <!-- ------------------------------------------------------------------------- -->
 
         <div class="input-wrapper fwd">
           <h3 class="heady">Fan-Watt-Draw</h3>
-          <input id="fan-w-draw" type="text" class="real-inputs" />Result<br />
+          <label for="hard-wired">
+            <input type="checkbox" id="hard-wired" />Hard-Wired
+          </label>
+          <label for="fan-w-draw">
+            <input id="fan-w-draw" type="text" class="real-inputs" />Result
+          </label>
         </div>
 
         <!-- ========================================================================== -->
@@ -216,19 +352,19 @@
           <label for="lock-caps-check" id="label-lock-caps-check">
             <input type="checkbox" id="lock-caps-check" />
             Locking Caps</label
-          ><br />
+          >
           <label for="ac-secure-check" id="label-ac-secure-check">
             <input type="checkbox" id="ac-secure-check" />
             A/C Secured To Pad</label
-          ><br />
+          >
           <label for="fuse-size-check" id="label-fuse-size-check">
             <input type="checkbox" id="fuse-size-check" />
             Correct Fuse Size</label
-          ><br />
+          >
           <label for="smoke-detect-check" id="label-smoke-detect-check">
             <input type="checkbox" id="smoke-detect-check" />
             CO/Smoke Detectors</label
-          ><br />
+          >
           <label for="gas-leg-check" id="label-gas-leg-check">
             <input type="checkbox" id="gas-leg-check" />
             Gas Drip Leg</label
@@ -238,16 +374,19 @@
         <!-- ------------------------------------------------------------------- -->
         <div class="input-wrapper status">
           <h3 class="heady">Job Status</h3>
-          <input id="pass-check" type="checkbox" class="real-inputs" />Pass
-          <br />
-          <input id="fail-check" type="checkbox" class="real-inputs" />Fail
-          <br />
+          <label for="pass-check">
+            <input id="pass-check" type="checkbox" class="real-inputs" />Pass
+          </label>
+
+          <label for="fail-check">
+            <input id="fail-check" type="checkbox" class="real-inputs" />Fail
+          </label>
         </div>
         <!-- ------------------------------------------------------------------------ -->
 
         <div class="input-wrapper notes">
           <h3 class="heady">Notes</h3>
-          <input type="textfield" id="notes" /><br />
+          <input type="textfield" id="notes" />
         </div>
       </div>
     </header>
@@ -268,6 +407,10 @@
           <h3 class="header">Furnace</h3>
           <div class="empty-space" id="fur-ans-wrapper"></div>
         </div>
+        <div id="evap-id" class="id-all">
+          <h3 class="header">Evaporator Coil</h3>
+          <div class="empty-space" id="evap-ans-wrapper"></div>
+        </div>
         <div id="ac-id" class="id-all">
           <h3 class="header">A/C</h3>
           <div class="empty-space" id="ac-ans-wrapper"></div>
@@ -283,6 +426,10 @@
         <div id="duct-id" class="id-all">
           <h3 class="header">Duct Leakage</h3>
           <div class="empty-space" id="leak-ans-wrapper"></div>
+        </div>
+        <div id="duct-exempt-id" class="id-all">
+          <h3 class="header">DLT Exempt</h3>
+          <div class="empty-space" id="duct-exempt-wrapper"></div>
         </div>
         <div id="rca-id" class="id-all">
           <h3 class="header">RCA</h3>
