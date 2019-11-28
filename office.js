@@ -255,7 +255,7 @@ function paperWork() {
       acShow.textContent = "Make: " + evapInMake.value;
       acModShow.textContent = "Model: " + evapInModel.value;
       acSerialShow.textContent = "Serial: " + evapInSerial.value;
-      tonsShow.textContent = "Tonnage: " + evapInTons.value;
+      // tonsShow.textContent = "Tonnage: " + evapInTons.value;
       evapAnsWrapper.appendChild(acShow);
       evapAnsWrapper.appendChild(acModShow);
       evapAnsWrapper.appendChild(acSerialShow);
