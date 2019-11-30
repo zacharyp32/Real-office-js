@@ -68,7 +68,6 @@ header {
 
 header,
 footer {
-  margin: auto;
 }
 
 .button-wrapper {
@@ -131,9 +130,15 @@ button{
 }
 
 
-/* Greater than 760px --------------------------------------------------*/
+/* Greater than 860px --------------------------------------------------*/
 
-@media only screen and (min-width: 860px) {
+@media only screen and (min-width: 740px) {
+  .id-all{
+    font-size: 0.7em;
+  }
+  .thing-show{
+    grid-template-columns: repeat(auto-fit,minmax(100px,1fr));
+  }
   .grid-span {
     grid-template-columns: repeat(2, minmax(100px, 1fr));
     grid-column: 2/3;

@@ -35,7 +35,7 @@ function paperWork() {
   const seerInput = document.getElementById("seer-input");
   const eerInput = document.getElementById("eer-input");
   const tempInput = document.getElementById("temp-input");
-  const indoorTempI=document.getElementById('indoor-temp-input')
+  const indoorTempI = document.getElementById("indoor-temp-input");
   const tons = document.getElementById("tons");
 
   const cutInCheck = document.getElementById("cutin-check");
@@ -83,6 +83,7 @@ function paperWork() {
   const genId = document.getElementById("general-id");
   const furId = document.getElementById("fur-id");
   const evapId = document.getElementById("evap-id");
+  const miniSplitId = document.getElementById("mini-split-id");
   const acId = document.getElementById("ac-id");
   const ductId = document.getElementById("duct-id");
   const ductExId = document.getElementById("duct-exempt-id");
@@ -106,6 +107,7 @@ function paperWork() {
   const genAnsWrapper = document.getElementById("gen-ans-wrapper");
   const furAnsWrapper = document.getElementById("fur-ans-wrapper");
   const evapAnsWrapper = document.getElementById("evap-ans-wrapper");
+  const miniSplitAnsWrapper = document.getElementById("mini-split-ans-wrapper");
   const acAnsWrapper = document.getElementById("ac-ans-wrapper");
   const leakAnsWrapper = document.getElementById("leak-ans-wrapper");
   const ductExWrapper = document.getElementById("duct-exempt-wrapper");
@@ -209,6 +211,8 @@ function paperWork() {
     );
   else if (miniSplitCheck.checked)
     showMiniSplit(
+      miniSplitId,
+      miniSplitAnsWrapper,
       furInMake,
       furInModel,
       furInSerial,
@@ -219,95 +223,80 @@ function paperWork() {
       seerInput,
       eerInput
     );
-  else {
-    if (furInMake.value) {
-      furId.style.display = "block";
-      let furMakeShow = document.createElement("p");
-      let furModShow = document.createElement("p");
-      let furSerialShow = document.createElement("p");
-      let iBShow = document.createElement("p");
-      let oBShow = document.createElement("p");
-      furMakeShow.textContent = "Make: " + furInMake.value;
-      furModShow.textContent = "Model: " + furInModel.value;
-      furSerialShow.textContent = "Serial: " + furInSerial.value;
-      iBShow.textContent = "Input BTU: " + inputBtu.value;
-      oBShow.textContent = "Output BTU: " + outputBtu.value;
-      furAnsWrapper.appendChild(furMakeShow);
-      furAnsWrapper.appendChild(furModShow);
-      furAnsWrapper.appendChild(furSerialShow);
-      if (furnaceEff.value) {
-        let fEShow = document.createElement("p");
-        fEShow.textContent = "AFUE: " + furnaceEff.value + "%";
-        furAnsWrapper.appendChild(fEShow);
-      }
-      furAnsWrapper.appendChild(iBShow);
-      furAnsWrapper.appendChild(oBShow);
+  else
+    showFurnace(
+      furInMake,
+      furInModel,
+      furInSerial,
+      furnaceEff,
+      furId,
+      inputBtu,
+      outputBtu,
+      furAnsWrapper
+    );
+  // -------------------------------------------------------------------------------
+
+  if (evapInMake.value) {
+    evapId.style.display = "block";
+    let acShow = document.createElement("p");
+    let acModShow = document.createElement("p");
+    let acSerialShow = document.createElement("p");
+    let tonsShow = document.createElement("p");
+    acShow.textContent = "Make: " + evapInMake.value;
+    acModShow.textContent = "Model: " + evapInModel.value;
+    acSerialShow.textContent = "Serial: " + evapInSerial.value;
+    // tonsShow.textContent = "Tonnage: " + evapInTons.value;
+    evapAnsWrapper.appendChild(acShow);
+    evapAnsWrapper.appendChild(acModShow);
+    evapAnsWrapper.appendChild(acSerialShow);
+    evapAnsWrapper.appendChild(tonsShow);
+    // if (evapInSeer.value) {
+    //   let seerShow = document.createElement("p");
+    //   seerShow.textContent = "SEER: " + seerInput.value;
+    //   evapAnsWrapper.appendChild(seerShow);
+    // }
+    // if (evapInEer.value) {
+    //   let eerShow = document.createElement("p");
+    //   eerShow.textContent = "EER: " + eerInput.value;
+    //   evapAnsWrapper.appendChild(eerShow);
+    // }
+  }
+
+  // -------------------------------------------------------------------------------------
+
+  if (acInMake.value) {
+    acId.style.display = "block";
+    let acShow = document.createElement("p");
+    let acModShow = document.createElement("p");
+    let acSerialShow = document.createElement("p");
+    let tonsShow = document.createElement("p");
+    acShow.textContent = "Make: " + acInMake.value;
+    acModShow.textContent = "Model: " + acInModel.value;
+    acSerialShow.textContent = "Serial: " + acInSerial.value;
+    tonsShow.textContent = "Tonnage: " + tons.value;
+    acAnsWrapper.appendChild(acShow);
+    acAnsWrapper.appendChild(acModShow);
+    acAnsWrapper.appendChild(acSerialShow);
+    acAnsWrapper.appendChild(tonsShow);
+    if (seerInput.value) {
+      let seerShow = document.createElement("p");
+      seerShow.textContent = "SEER: " + seerInput.value;
+      acAnsWrapper.appendChild(seerShow);
     }
-
-    // -------------------------------------------------------------------------------
-
-    if (evapInMake.value) {
-      evapId.style.display = "block";
-      let acShow = document.createElement("p");
-      let acModShow = document.createElement("p");
-      let acSerialShow = document.createElement("p");
-      let tonsShow = document.createElement("p");
-      acShow.textContent = "Make: " + evapInMake.value;
-      acModShow.textContent = "Model: " + evapInModel.value;
-      acSerialShow.textContent = "Serial: " + evapInSerial.value;
-      // tonsShow.textContent = "Tonnage: " + evapInTons.value;
-      evapAnsWrapper.appendChild(acShow);
-      evapAnsWrapper.appendChild(acModShow);
-      evapAnsWrapper.appendChild(acSerialShow);
-      evapAnsWrapper.appendChild(tonsShow);
-      // if (evapInSeer.value) {
-      //   let seerShow = document.createElement("p");
-      //   seerShow.textContent = "SEER: " + seerInput.value;
-      //   evapAnsWrapper.appendChild(seerShow);
-      // }
-      // if (evapInEer.value) {
-      //   let eerShow = document.createElement("p");
-      //   eerShow.textContent = "EER: " + eerInput.value;
-      //   evapAnsWrapper.appendChild(eerShow);
-      // }
+    if (eerInput.value) {
+      let eerShow = document.createElement("p");
+      eerShow.textContent = "EER: " + eerInput.value;
+      acAnsWrapper.appendChild(eerShow);
     }
-
-    // -------------------------------------------------------------------------------------
-
-    if (acInMake.value) {
-      acId.style.display = "block";
-      let acShow = document.createElement("p");
-      let acModShow = document.createElement("p");
-      let acSerialShow = document.createElement("p");
-      let tonsShow = document.createElement("p");
-      acShow.textContent = "Make: " + acInMake.value;
-      acModShow.textContent = "Model: " + acInModel.value;
-      acSerialShow.textContent = "Serial: " + acInSerial.value;
-      tonsShow.textContent = "Tonnage: " + tons.value;
-      acAnsWrapper.appendChild(acShow);
-      acAnsWrapper.appendChild(acModShow);
-      acAnsWrapper.appendChild(acSerialShow);
-      acAnsWrapper.appendChild(tonsShow);
-      if (seerInput.value) {
-        let seerShow = document.createElement("p");
-        seerShow.textContent = "SEER: " + seerInput.value;
-        acAnsWrapper.appendChild(seerShow);
-      }
-      if (eerInput.value) {
-        let eerShow = document.createElement("p");
-        eerShow.textContent = "EER: " + eerInput.value;
-        acAnsWrapper.appendChild(eerShow);
-      }
-      if (tempInput.value) {
-        let tempShow = document.createElement("p");
-        tempShow.textContent = "Outdoor Temp: " + tempInput.value;
-        acAnsWrapper.appendChild(tempShow);
-      }
-      if(indoorTempI.value){
-        let tempShow = document.createElement("p");
-        tempShow.textContent = "Indoor Temp: " + indoorTempI.value;
-        acAnsWrapper.appendChild(tempShow);        
-      }
+    if (tempInput.value) {
+      let tempShow = document.createElement("p");
+      tempShow.textContent = "Outdoor Temp: " + tempInput.value;
+      acAnsWrapper.appendChild(tempShow);
+    }
+    if (indoorTempI.value) {
+      let tempShow = document.createElement("p");
+      tempShow.textContent = "Indoor Temp: " + indoorTempI.value;
+      acAnsWrapper.appendChild(tempShow);
     }
   }
 
@@ -527,11 +516,11 @@ function paperWork() {
     hWiredShow.textContent("Furnace Hard-Wired");
     notesAnsWrapper.appendChild(hWiredShow);
   }
-
-  // blankInputs(climateZone, tons, inputBtu, furnaceEff, outputBtu, inputAirflow, leakage, fwD, notes)
-
-  // uncheck(asbestos, furnace, acCheck, packageUnit, newDucts)
 }
+// blankInputs(climateZone, tons, inputBtu, furnaceEff, outputBtu, inputAirflow, leakage, fwD, notes)
+
+// uncheck(asbestos, furnace, acCheck, packageUnit, newDucts)
+
 // Functions_____________________________________________________________________________________
 function showPackageUnit(
   furInMake,
@@ -588,6 +577,8 @@ function showPackageUnit(
 }
 
 function showMiniSplit(
+  miniSplitId,
+  miniSplitAnsWrapper,
   furInMake,
   furInModel,
   furInSerial,
@@ -598,8 +589,7 @@ function showMiniSplit(
   seerInput,
   eerInput
 ) {
-  const miniSplitId = document.getElementById("mini-split-id");
-  const miniSplitAnsWrapper = document.getElementById("mini-split-ans-wrapper");
+  // ---------------------------------------
 
   miniSplitAnsWrapper.innerHTML = "";
   miniSplitId.style.display = "block";
@@ -638,5 +628,43 @@ function showMiniSplit(
       eerShow.textContent = "EER: " + eerInput.value;
       miniSplitAnsWrapper.appendChild(eerShow);
     }
+  }
+}
+
+// ------------------------------------------------------------------------------
+
+function showFurnace(
+  furInMake,
+  furInModel,
+  furInSerial,
+  furnaceEff,
+  furId,
+  inputBtu,
+  outputBtu,
+  furAnsWrapper
+) {
+  // -------------------
+  if (furInMake.value) {
+    furId.style.display = "block";
+    let furMakeShow = document.createElement("p");
+    let furModShow = document.createElement("p");
+    let furSerialShow = document.createElement("p");
+    let iBShow = document.createElement("p");
+    let oBShow = document.createElement("p");
+    furMakeShow.textContent = "Make: " + furInMake.value;
+    furModShow.textContent = "Model: " + furInModel.value;
+    furSerialShow.textContent = "Serial: " + furInSerial.value;
+    iBShow.textContent = "Input BTU: " + inputBtu.value;
+    oBShow.textContent = "Output BTU: " + outputBtu.value;
+    furAnsWrapper.appendChild(furMakeShow);
+    furAnsWrapper.appendChild(furModShow);
+    furAnsWrapper.appendChild(furSerialShow);
+    if (furnaceEff.value) {
+      let fEShow = document.createElement("p");
+      fEShow.textContent = "AFUE: " + furnaceEff.value + "%";
+      furAnsWrapper.appendChild(fEShow);
+    }
+    furAnsWrapper.appendChild(iBShow);
+    furAnsWrapper.appendChild(oBShow);
   }
 }
