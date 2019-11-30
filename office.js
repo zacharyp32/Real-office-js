@@ -328,7 +328,7 @@ function paperWork() {
   if (asbestos.checked) {
     ductExId.style.display = "block";
     let asbShow = document.createElement("p");
-    asbShow.textContent = "Asbestos: Yes";
+    asbShow.textContent = "Asbestos";
     ductExWrapper.appendChild(asbShow);
   }
 
