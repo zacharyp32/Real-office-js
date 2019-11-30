@@ -582,7 +582,7 @@ function showPackageUnit(
     if (eerInput.value) {
       let eerShow = document.createElement("p");
       eerShow.textContent = "EER: " + eerInput.value;
-      acAnsWrapper.appendChild(eerShow);
+      packUnitAnsWrapper.appendChild(eerShow);
     }
   }
 }
@@ -636,7 +636,7 @@ function showMiniSplit(
     if (eerInput.value) {
       let eerShow = document.createElement("p");
       eerShow.textContent = "EER: " + eerInput.value;
-      acAnsWrapper.appendChild(eerShow);
+      miniSplitAnsWrapper.appendChild(eerShow);
     }
   }
 }
