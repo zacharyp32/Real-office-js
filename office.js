@@ -1,3 +1,22 @@
+let headers = document.getElementsByClassName("heady");
+const idArray = [];
+
+// for(let i=0;i<headers.length;i++){
+
+// }
+
+for (let item of headers) {
+  item.addEventListener("click", displayInputs);
+}
+
+function displayInputs(e) {
+  if (e.target.classList.value !== "heady") return;
+
+  let inputsStyle = e.target.children[0].style;
+  if (inputsStyle.display === "") inputsStyle.display = "flex";
+  else inputsStyle.display = "";
+}
+
 function paperWork() {
   //Grab HTML elements--------------------------------------
   const dateInput = document.getElementById("date-input");
@@ -513,7 +532,7 @@ function paperWork() {
   if (hardWiredCheck.checked) {
     notesId.style.display = "block";
     let hWiredShow = document.createElement("p");
-    hWiredShow.textContent("Furnace Hard-Wired");
+    hWiredShow.textContent="Furnace Hard-Wired";
     notesAnsWrapper.appendChild(hWiredShow);
   }
 }
