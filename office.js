@@ -496,31 +496,31 @@ function paperWork() {
 
   // -----------------------------------------------------------------
 
-  if (condenserCheck.checked && lockCapsCheck.checked === false) {
+  if (condenserCheck.checked && lockCapsCheck.checked) {
     qcId.style.display = "block";
     let capsShow = document.createElement("p");
     capsShow.textContent = "Locking Caps: No";
     qcAnsWrapper.appendChild(capsShow);
   }
-  if (condenserCheck.checked && acSecureCheck.checked === false) {
+  if (condenserCheck.checked && acSecureCheck.checked) {
     qcId.style.display = "block";
     let secureShow = document.createElement("p");
     secureShow.textContent = "A/C Secured To Pad: No";
     qcAnsWrapper.appendChild(secureShow);
   }
-  if (condenserCheck.checked && fuseSizeCheck.checked === false) {
+  if (condenserCheck.checked && fuseSizeCheck.checked) {
     qcId.style.display = "block";
     let fuseShow = document.createElement("p");
     fuseShow.textContent = "Fuse Size Correct: No";
     qcAnsWrapper.appendChild(fuseShow);
   }
-  if (smokeDetectCheck.checked === false) {
+  if (smokeDetectCheck.checked) {
     qcId.style.display = "block";
     let detectShow = document.createElement("p");
     detectShow.textContent = "CO/Smoke Detectors: No";
     qcAnsWrapper.appendChild(detectShow);
   }
-  if (furnaceCheck.checked && gasLegCheck.checked === false) {
+  if (furnaceCheck.checked && gasLegCheck.checked) {
     qcId.style.display = "block";
     let gasLegShow = document.createElement("p");
     gasLegShow.textContent = "Gas Drip Leg: No";
