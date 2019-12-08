@@ -1,10 +1,6 @@
 let headers = document.getElementsByClassName("heady");
 const idArray = [];
 
-// for(let i=0;i<headers.length;i++){
-
-// }
-
 for (let item of headers) {
   item.addEventListener("click", displayInputs);
 }
@@ -25,6 +21,7 @@ function paperWork() {
 
   const systemIdInput = document.getElementById("unit-num-input");
   const packUnitCheck = document.getElementById("punit-check-input");
+  const hPumpCheck = document.getElementById("hpump-check-input");
   const miniSplitCheck = document.getElementById("mini-check-input");
   const furnaceCheck = document.getElementById("furnace-check");
   const coilCheck = document.getElementById("coil-check");
@@ -104,6 +101,7 @@ function paperWork() {
   const evapId = document.getElementById("evap-id");
   const miniSplitId = document.getElementById("mini-split-id");
   const acId = document.getElementById("ac-id");
+  const heatPumpId = document.getElementById("heat-pump-id");
   const ductId = document.getElementById("duct-id");
   const ductExId = document.getElementById("duct-exempt-id");
   const ductInfoId = document.getElementById("duct-info-id");
@@ -126,8 +124,9 @@ function paperWork() {
   const genAnsWrapper = document.getElementById("gen-ans-wrapper");
   const furAnsWrapper = document.getElementById("fur-ans-wrapper");
   const evapAnsWrapper = document.getElementById("evap-ans-wrapper");
-  const miniSplitAnsWrapper = document.getElementById("mini-split-ans-wrapper");
   const acAnsWrapper = document.getElementById("ac-ans-wrapper");
+  const hPumpAnsWrapper = document.getElementById("hpump-ans-wrapper");
+  const miniSplitAnsWrapper = document.getElementById("mini-split-ans-wrapper");
   const leakAnsWrapper = document.getElementById("leak-ans-wrapper");
   const ductExWrapper = document.getElementById("duct-exempt-wrapper");
   const ductInfoWrapper = document.getElementById("duct-info-wrapper");
@@ -143,6 +142,7 @@ function paperWork() {
   evapAnsWrapper.innerHTML = "";
   furAnsWrapper.innerHTML = "";
   acAnsWrapper.innerHTML = "";
+  hPumpAnsWrapper.innerHTML = "";
   leakAnsWrapper.innerHTML = "";
   ductExWrapper.innerHTML = "";
   ductInfoWrapper.innerHTML = "";
@@ -153,7 +153,6 @@ function paperWork() {
   statusAnsWrapper.innerHTML = "";
   qcAnsWrapper.innerHTML = "";
   notesAnsWrapper.innerHTML = "";
-
   genId.style.display = "none";
   furId.style.display = "none";
   evapId.style.display = "none";
@@ -216,33 +215,92 @@ function paperWork() {
   }
 
   // --------------------------------------------------------------------
-  if (packUnitCheck.checked)
-    showPackageUnit(
-      furInMake,
-      furInModel,
-      furInSerial,
-      furnaceEff,
-      inputBtu,
-      outputBtu,
-      tons,
-      seerInput,
-      eerInput
-    );
-  else if (miniSplitCheck.checked)
-    showMiniSplit(
-      miniSplitId,
-      miniSplitAnsWrapper,
-      furInMake,
-      furInModel,
-      furInSerial,
-      furnaceEff,
-      inputBtu,
-      outputBtu,
-      tons,
-      seerInput,
-      eerInput
-    );
-  else
+  if (hPumpCheck.checked) {
+    if (furInMake.value) {
+      const headTxt=document.getElementById('change-to-hp')
+      headTxt.textContent='Heat Pump Inside'
+      furId.style.display = "block";
+
+      let furMakeShow = document.createElement("p");
+      let furModShow = document.createElement("p");
+      let furSerialShow = document.createElement("p");
+      furMakeShow.textContent = "Make: " + furInMake.value;
+      furModShow.textContent = "Model: " + furInModel.value;
+      furSerialShow.textContent = "Serial: " + furInSerial.value;
+      furAnsWrapper.appendChild(furMakeShow);
+      debugger;
+      furAnsWrapper.appendChild(furModShow);
+      furAnsWrapper.appendChild(furSerialShow);
+      if (furnaceEff.value) {
+        let fEShow = document.createElement("p");
+        fEShow.textContent = "AFUE: " + furnaceEff.value + "%";
+        furAnsWrapper.appendChild(fEShow);
+      }
+    }
+    // ------------------------------------------------------------------------
+    if (acInMake.value) {
+      heatPumpId.style.display = "block";
+      let acShow = document.createElement("p");
+      let acModShow = document.createElement("p");
+      let acSerialShow = document.createElement("p");
+      let tonsShow = document.createElement("p");
+      acShow.textContent = "Make: " + acInMake.value;
+      acModShow.textContent = "Model: " + acInModel.value;
+      acSerialShow.textContent = "Serial: " + acInSerial.value;
+      tonsShow.textContent = "Tonnage: " + tons.value;
+      hPumpAnsWrapper.appendChild(acShow);
+      hPumpAnsWrapper.appendChild(acModShow);
+      hPumpAnsWrapper.appendChild(acSerialShow);
+      hPumpAnsWrapper.appendChild(tonsShow);
+      if (seerInput.value) {
+        let seerShow = document.createElement("p");
+        seerShow.textContent = "SEER: " + seerInput.value;
+        hPumpAnsWrapper.appendChild(seerShow);
+      }
+      if (eerInput.value) {
+        let eerShow = document.createElement("p");
+        eerShow.textContent = "EER: " + eerInput.value;
+        hPumpAnsWrapper.appendChild(eerShow);
+      }
+      if (tempInput.value) {
+        let tempShow = document.createElement("p");
+        tempShow.textContent = "Outdoor Temp: " + tempInput.value;
+        hPumpAnsWrapper.appendChild(tempShow);
+      }
+      if (indoorTempI.value) {
+        let tempShow = document.createElement("p");
+        tempShow.textContent = "Indoor Temp: " + indoorTempI.value;
+        hPumpAnsWrapper.appendChild(tempShow);
+      }
+    }
+
+    if (packUnitCheck.checked)
+      showPackageUnit(
+        furInMake,
+        furInModel,
+        furInSerial,
+        furnaceEff,
+        inputBtu,
+        outputBtu,
+        tons,
+        seerInput,
+        eerInput
+      );
+    else if (miniSplitCheck.checked)
+      showMiniSplit(
+        miniSplitId,
+        furInMake,
+        furInModel,
+        furInSerial,
+        furnaceEff,
+        inputBtu,
+        outputBtu,
+        tons,
+        seerInput,
+        eerInput,
+        miniSplitAnsWrapper
+      );
+  } else
     showFurnace(
       furInMake,
       furInModel,
@@ -283,7 +341,7 @@ function paperWork() {
 
   // -------------------------------------------------------------------------------------
 
-  if (acInMake.value) {
+  if (acInMake.value && hPumpCheck.checked === false) {
     acId.style.display = "block";
     let acShow = document.createElement("p");
     let acModShow = document.createElement("p");
@@ -532,7 +590,7 @@ function paperWork() {
   if (hardWiredCheck.checked) {
     notesId.style.display = "block";
     let hWiredShow = document.createElement("p");
-    hWiredShow.textContent="Furnace Hard-Wired";
+    hWiredShow.textContent = "Furnace Hard-Wired";
     notesAnsWrapper.appendChild(hWiredShow);
   }
 }
@@ -651,6 +709,28 @@ function showMiniSplit(
 }
 
 // ------------------------------------------------------------------------------
+
+function showHeatPump(
+  furInMake,
+  furInModel,
+  furInSerial,
+  furnaceEff,
+  acInMake,
+  acInMake,
+  acInModel,
+  acInSerial,
+  tons,
+  seerInput,
+  eerInput,
+  tempInput,
+  indoorTempI,
+  furId,
+  heatPumpId,
+  hPumpAnsWrapper,
+  furAnsWrapper
+) {}
+
+// ----------------------------------------------------------------------------
 
 function showFurnace(
   furInMake,

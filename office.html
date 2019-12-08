@@ -54,16 +54,24 @@
                 Mini-Split
               </label>
               <label for="furnace-check">
-                <input type="checkbox" id="furnace-check" />Furnace
+                <input type="checkbox" id="furnace-check" class="real-inputs"/>
+                Furnace
               </label>
               <label for="coil-check">
-                <input type="checkbox" id="coil-check" />Evap Coil
+                <input type="checkbox" id="coil-check" class="real-inputs"/>
+                Evap Coil
               </label>
               <label for="condenser-check">
-                <input type="checkbox" id="condenser-check" />Condenser
+                <input type="checkbox" id="condenser-check" class="real-inputs"/>
+                Condenser
+              </label>
+              <label for="hpump-check-input" class="labels">
+                <input type="checkbox" id="hpump-check-input" class="real-inputs">
+                Heat Pump
               </label>
               <label for="ducts-check">
-                <input type="checkbox" id="ducts-check" />Ducts
+                <input type="checkbox" id="ducts-check"class="real-inputs" />
+                Ducts
               </label>
               </div>
             </h3>
@@ -72,7 +80,7 @@
         <!-- ------------------------------------------------------------------------------------- -->
 
         <div class="furnace">
-          <h3 id="furnace-text" class="heady">Heat &#9662
+          <h3 id="furnace-text" class="heady">Furnace | HP Inside &#9662
 
             <div class="input-wrapper" id='furnace'>
 
@@ -141,7 +149,7 @@
         <!-- -------------------------------------------------------------------------- -->
 
         <div class="ac">
-          <h3 class="heady">A/C | Heat-Pump &#9662
+          <h3 class="heady">A/C | HP Outside &#9662
 
             <div class="input-wrapper" id='ac'>
 
@@ -469,99 +477,73 @@
     <footer>
       <h3 class="thing-show">
         <div id="duct-info-id" class="id-all">
-          <h3 class="header">Ductwork Info
-
-          </h3>
+          <h3 class="header">Ductwork Info</h3>
           <div class="empty-space" id="duct-info-wrapper"></div>
         </div>
         <div id="general-id" class="id-all">
-          <h3 class="header" id="general-text">General
-
-          </h3>
+          <h3 class="header" id="general-text">General</h3>
           <div class="empty-space" id="gen-ans-wrapper"></div>
         </div>
         <div id="fur-id" class="id-all">
-          <h3 class="header">Furnace
-
-          </h3>
+          <h3 id='change-to-hp' class="header">Furnace</h3>
           <div class="empty-space" id="fur-ans-wrapper"></div>
         </div>
         <div id="evap-id" class="id-all">
-          <h3 class="header">Evaporator Coil
-
-          </h3>
+          <h3 class="header">Evaporator Coil</h3>
           <div class="empty-space" id="evap-ans-wrapper"></div>
         </div>
         <div id="ac-id" class="id-all">
-          <h3 class="header">A/C
-
-          </h3>
+          <h3 class="header">A/C</h3>
           <div class="empty-space" id="ac-ans-wrapper"></div>
         </div>
-        <div id="pack-unit-id" class="id-all">
-          <h3 class="header">Package Unit
 
-          </h3>
+        <div id="heat-pump-id" class="id-all">
+          <h3 class="header">Heat Pump Outside</h3>
+          <div class="empty-space" id="hpump-ans-wrapper"></div>
+        </div>
+
+        <div id="pack-unit-id" class="id-all">
+          <h3 class="header">Package Unit</h3>
           <div class="empty-space" id="pac-unit-ans-wrapper"></div>
         </div>
         <div id="mini-split-id" class="id-all">
-          <h3 class="header">Mini Split
-
-          </h3>
+          <h3 class="header">Mini Split</h3>
           <div class="empty-space" id="mini-split-ans-wrapper"></div>
         </div>
         <div id="qc-id" class="id-all">
-          <h3 class="header">QC
-
-          </h3>
+          <h3 class="header">QC</h3>
           <div class="empty-space" id="qc-ans-wrapper"></div>
         </div>
         <div id="rca-id" class="id-all">
-          <h3 class="header">RCA
-
-          </h3>
+          <h3 class="header">RCA</h3>
           <div class="empty-space" id="rca-ans-wrapper"></div>
         </div>
         <div id="duct-id" class="id-all">
-          <h3 class="header">Duct Leakage
-
-          </h3>
+          <h3 class="header">Duct Leakage</h3>
           <div class="empty-space" id="leak-ans-wrapper"></div>
         </div>
         <div id="duct-exempt-id" class="id-all">
-          <h3 class="header">DLT Exempt
-
-          </h3>
+          <h3 class="header">DLT Exempt</h3>
           <div class="empty-space" id="duct-exempt-wrapper"></div>
         </div>
         <div id="airflow-id" class="id-all">
-          <h3 class="header">Airflow
-
-          </h3>
+          <h3 class="header">Airflow</h3>
           <div class="empty-space" id="flow-ans-wrapper"></div>
         </div>
         <div id="bd-id" class="id-all">
-          <h3 class="header">Blower Door
-
-          </h3>
+          <h3 class="header">Blower Door</h3>
           <div class="empty-space" id="bd-ans-wrapper"></div>
         </div>
         <div id="fwd-id" class="id-all">
-          <h3 class="header">Fan Watt Draw
-
-          </h3>
+          <h3 class="header">Fan Watt Draw</h3>
           <div class="empty-space" id="fwd-ans-wrapper"></div>
         </div>
         <div id="status-id" class="id-all">
-          <h3 class="header">Job Status
-
-          </h3>
+          <h3 class="header">Job Status</h3>
           <div class="empty-space" id="stat-ans-wrapper"></div>
         </div>
         <div id="notes-id" class="id-all">
-          <h3 class="header">Notes
-
-          </h3>
+          <h3 class="header">Notes</h3>
           <div class="empty-space" id="notes-ans-wrapper"></div>
         </div>
       
