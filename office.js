@@ -514,16 +514,16 @@ function paperWork() {
     numFilterShow.textContent = "Number of Filters: " + numFilterInput.value;
     locFilterShow.textContent =
       "Location of Filter(s): " + locFilterInput.value;
-    ductInfoId.appendChild(returnLocShow);
-    ductInfoId.appendChild(supplyLocShow);
-    ductInfoId.appendChild(numFilterShow);
-    ductInfoId.appendChild(locFilterShow);
+    ductInfoWrapper.appendChild(returnLocShow);
+    ductInfoWrapper.appendChild(supplyLocShow);
+    ductInfoWrapper.appendChild(numFilterShow);
+    ductInfoWrapper.appendChild(locFilterShow);
   }
   if (rValueinput.value) {
     ductInfoId.style.display = "block";
     let rShow = document.createElement("p");
     rShow.textContent = "R-Value: " + rValueinput.value;
-    ductInfoId.appendChild(rShow);
+    ductInfoWrapper.appendChild(rShow);
   }
 
   // --------------------------------------------------------------------------
