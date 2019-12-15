@@ -217,8 +217,8 @@ function paperWork() {
   // --------------------------------------------------------------------
   if (hPumpCheck.checked) {
     if (furInMake.value) {
-      const headTxt=document.getElementById('change-to-hp')
-      headTxt.textContent='Heat Pump Inside'
+      const headTxt = document.getElementById("change-to-hp");
+      headTxt.textContent = "Heat Pump Inside";
       furId.style.display = "block";
 
       let furMakeShow = document.createElement("p");
@@ -228,7 +228,6 @@ function paperWork() {
       furModShow.textContent = "Model: " + furInModel.value;
       furSerialShow.textContent = "Serial: " + furInSerial.value;
       furAnsWrapper.appendChild(furMakeShow);
-      debugger;
       furAnsWrapper.appendChild(furModShow);
       furAnsWrapper.appendChild(furSerialShow);
       if (furnaceEff.value) {
@@ -620,14 +619,10 @@ function showPackageUnit(
     let furMakeShow = document.createElement("p");
     let furModShow = document.createElement("p");
     let furSerialShow = document.createElement("p");
-    let iBShow = document.createElement("p");
-    let oBShow = document.createElement("p");
     let tonsShow = document.createElement("p");
     furMakeShow.textContent = "Make: " + furInMake.value;
     furModShow.textContent = "Model: " + furInModel.value;
     furSerialShow.textContent = "Serial: " + furInSerial.value;
-    iBShow.textContent = "Input BTU: " + inputBtu.value;
-    oBShow.textContent = "Output BTU: " + outputBtu.value;
     tonsShow.textContent = "Tonnage: " + tons.value;
     packUnitAnsWrapper.appendChild(furMakeShow);
     packUnitAnsWrapper.appendChild(furModShow);
@@ -637,9 +632,17 @@ function showPackageUnit(
       fEShow.textContent = "AFUE: " + furnaceEff.value + "%";
       packUnitAnsWrapper.appendChild(fEShow);
     }
-    packUnitAnsWrapper.appendChild(iBShow);
-    packUnitAnsWrapper.appendChild(oBShow);
+    if (inputBtu.value) {
+      let iBShow = document.createElement("p");
+      let oBShow = document.createElement("p");
+      iBShow.textContent = "Input BTU: " + inputBtu.value;
+      oBShow.textContent = "Output BTU: " + outputBtu.value;
+      packUnitAnsWrapper.appendChild(iBShow);
+      packUnitAnsWrapper.appendChild(oBShow);
+    }
+
     packUnitAnsWrapper.appendChild(tonsShow);
+
     if (seerInput.value) {
       let seerShow = document.createElement("p");
       seerShow.textContent = "SEER: " + seerInput.value;
@@ -675,14 +678,10 @@ function showMiniSplit(
     let furMakeShow = document.createElement("p");
     let furModShow = document.createElement("p");
     let furSerialShow = document.createElement("p");
-    let iBShow = document.createElement("p");
-    let oBShow = document.createElement("p");
     let tonsShow = document.createElement("p");
     furMakeShow.textContent = "Make: " + furInMake.value;
     furModShow.textContent = "Model: " + furInModel.value;
     furSerialShow.textContent = "Serial: " + furInSerial.value;
-    iBShow.textContent = "Input BTU: " + inputBtu.value;
-    oBShow.textContent = "Output BTU: " + outputBtu.value;
     tonsShow.textContent = "Tonnage: " + tons.value;
     miniSplitAnsWrapper.appendChild(furMakeShow);
     miniSplitAnsWrapper.appendChild(furModShow);
@@ -692,8 +691,14 @@ function showMiniSplit(
       fEShow.textContent = "AFUE: " + furnaceEff.value + "%";
       miniSplitAnsWrapper.appendChild(fEShow);
     }
-    miniSplitAnsWrapper.appendChild(iBShow);
-    miniSplitAnsWrapper.appendChild(oBShow);
+    if (inputBtu.value) {
+      let iBShow = document.createElement("p");
+      let oBShow = document.createElement("p");
+      iBShow.textContent = "Input BTU: " + inputBtu.value;
+      oBShow.textContent = "Output BTU: " + outputBtu.value;
+      miniSplitAnsWrapper.appendChild(iBShow);
+      miniSplitAnsWrapper.appendChild(oBShow);
+    }
     miniSplitAnsWrapper.appendChild(tonsShow);
     if (seerInput.value) {
       let seerShow = document.createElement("p");
@@ -748,13 +753,9 @@ function showFurnace(
     let furMakeShow = document.createElement("p");
     let furModShow = document.createElement("p");
     let furSerialShow = document.createElement("p");
-    let iBShow = document.createElement("p");
-    let oBShow = document.createElement("p");
     furMakeShow.textContent = "Make: " + furInMake.value;
     furModShow.textContent = "Model: " + furInModel.value;
     furSerialShow.textContent = "Serial: " + furInSerial.value;
-    iBShow.textContent = "Input BTU: " + inputBtu.value;
-    oBShow.textContent = "Output BTU: " + outputBtu.value;
     furAnsWrapper.appendChild(furMakeShow);
     furAnsWrapper.appendChild(furModShow);
     furAnsWrapper.appendChild(furSerialShow);
@@ -763,7 +764,13 @@ function showFurnace(
       fEShow.textContent = "AFUE: " + furnaceEff.value + "%";
       furAnsWrapper.appendChild(fEShow);
     }
-    furAnsWrapper.appendChild(iBShow);
-    furAnsWrapper.appendChild(oBShow);
+    if (inputBtu.value) {
+      let iBShow = document.createElement("p");
+      let oBShow = document.createElement("p");
+      iBShow.textContent = "Input BTU: " + inputBtu.value;
+      oBShow.textContent = "Output BTU: " + outputBtu.value;
+      furAnsWrapper.appendChild(iBShow);
+      furAnsWrapper.appendChild(oBShow);
+    }
   }
 }
