@@ -117,11 +117,8 @@ header {
 }
 
 button{
-  margin: 1em;
-}
-
-#paperwork-button{
   margin-bottom: 2em;
+  margin: 1em;
 }
 
 #duct-info-id{
