@@ -68,6 +68,7 @@ function paperWork() {
   const leakage = document.getElementById("leakage");
   const openCheck = document.getElementById("open-check");
   const pbsCheck = document.getElementById("pbs-check");
+  const btwFloorsCheck=document.getElementById('btw-floors')
   const leakOutside = document.getElementById("leak-outside-check");
   const actualCheck = document.getElementById("actual-check");
 
@@ -101,6 +102,7 @@ function paperWork() {
   const evapId = document.getElementById("evap-id");
   const miniSplitId = document.getElementById("mini-split-id");
   const acId = document.getElementById("ac-id");
+  const packUnitId = document.getElementById("pack-unit-id");
   const heatPumpId = document.getElementById("heat-pump-id");
   const ductId = document.getElementById("duct-id");
   const ductExId = document.getElementById("duct-exempt-id");
@@ -126,6 +128,7 @@ function paperWork() {
   const evapAnsWrapper = document.getElementById("evap-ans-wrapper");
   const acAnsWrapper = document.getElementById("ac-ans-wrapper");
   const hPumpAnsWrapper = document.getElementById("hpump-ans-wrapper");
+  const packUnitAnsWrapper = document.getElementById("pac-unit-ans-wrapper");
   const miniSplitAnsWrapper = document.getElementById("mini-split-ans-wrapper");
   const leakAnsWrapper = document.getElementById("leak-ans-wrapper");
   const ductExWrapper = document.getElementById("duct-exempt-wrapper");
@@ -142,6 +145,8 @@ function paperWork() {
   evapAnsWrapper.innerHTML = "";
   furAnsWrapper.innerHTML = "";
   acAnsWrapper.innerHTML = "";
+  miniSplitAnsWrapper.innerHTML=''
+  packUnitAnsWrapper.innerHTML=''
   hPumpAnsWrapper.innerHTML = "";
   leakAnsWrapper.innerHTML = "";
   ductExWrapper.innerHTML = "";
@@ -157,6 +162,8 @@ function paperWork() {
   furId.style.display = "none";
   evapId.style.display = "none";
   acId.style.display = "none";
+  miniSplitId.style.display='none'
+  packUnitId.style.display='none'
   ductId.style.display = "none";
   ductExId.style.display = "none";
   ductInfoId.style.display = "none";
@@ -236,6 +243,7 @@ function paperWork() {
         furAnsWrapper.appendChild(fEShow);
       }
     }
+  }
     // ------------------------------------------------------------------------
     if (acInMake.value) {
       heatPumpId.style.display = "block";
@@ -283,7 +291,9 @@ function paperWork() {
         outputBtu,
         tons,
         seerInput,
-        eerInput
+        eerInput,
+        packUnitAnsWrapper,
+        packUnitId
       );
     else if (miniSplitCheck.checked)
       showMiniSplit(
@@ -299,7 +309,7 @@ function paperWork() {
         eerInput,
         miniSplitAnsWrapper
       );
-  } else
+   else
     showFurnace(
       furInMake,
       furInModel,
@@ -413,6 +423,11 @@ function paperWork() {
     smokeShow.textContent = "Pass by smoke: Yes";
     leakAnsWrapper.appendChild(smokeShow);
   }
+  if(btwFloorsCheck.checked){
+    let btwShow=document.createElement('p')
+    btwShow.textContent='Ducts Between Floors: Yes'
+    leakAnsWrapper.appendChild(btwShow)
+  }
   if (leakOutside.checked) {
     let leakOutShow = document.createElement("p");
     leakOutShow.textContent = "Leakage to Outside";
@@ -503,18 +518,14 @@ function paperWork() {
   if (returnLocInput.value) {
     ductInfoId.style.display = "block";
     let returnLocShow = document.createElement("p");
-    let supplyLocShow = document.createElement("p");
     let numFilterShow = document.createElement("p");
     let locFilterShow = document.createElement("p");
     returnLocShow.textContent =
       "Return Ducting Location: " + returnLocInput.value;
-    supplyLocShow.textContent =
-      "Supply Ducting Location: " + supplyLocInput.value;
     numFilterShow.textContent = "Number of Filters: " + numFilterInput.value;
     locFilterShow.textContent =
       "Location of Filter(s): " + locFilterInput.value;
     ductInfoWrapper.appendChild(returnLocShow);
-    ductInfoWrapper.appendChild(supplyLocShow);
     ductInfoWrapper.appendChild(numFilterShow);
     ductInfoWrapper.appendChild(locFilterShow);
   }
@@ -607,13 +618,12 @@ function showPackageUnit(
   outputBtu,
   tons,
   seerInput,
-  eerInput
+  eerInput,
+  packUnitAnsWrapper,
+  packUnitId
 ) {
-  const packUnitId = document.getElementById("pack-unit-id");
-  const packUnitAnsWrapper = document.getElementById("pac-unit-ans-wrapper");
-
-  packUnitAnsWrapper.innerHTML = "";
-  packUnitId.style.display = "block";
+  
+  packUnitId.style.display='block'
 
   if (furInMake.value) {
     let furMakeShow = document.createElement("p");
@@ -671,7 +681,6 @@ function showMiniSplit(
 ) {
   // ---------------------------------------
 
-  miniSplitAnsWrapper.innerHTML = "";
   miniSplitId.style.display = "block";
 
   if (furInMake.value) {
