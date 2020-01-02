@@ -252,43 +252,44 @@ function paperWork() {
         furAnsWrapper.appendChild(fEShow);
       }
     }
+    if (acInMake.value) {
+      heatPumpId.style.display = "block";
+      let acShow = document.createElement("p");
+      let acModShow = document.createElement("p");
+      let acSerialShow = document.createElement("p");
+      let tonsShow = document.createElement("p");
+      acShow.textContent = "Make: " + acInMake.value;
+      acModShow.textContent = "Model: " + acInModel.value;
+      acSerialShow.textContent = "Serial: " + acInSerial.value;
+      tonsShow.textContent = "Tonnage: " + tons.value;
+      hPumpAnsWrapper.appendChild(acShow);
+      hPumpAnsWrapper.appendChild(acModShow);
+      hPumpAnsWrapper.appendChild(acSerialShow);
+      hPumpAnsWrapper.appendChild(tonsShow);
+      if (seerInput.value) {
+        let seerShow = document.createElement("p");
+        seerShow.textContent = "SEER: " + seerInput.value;
+        hPumpAnsWrapper.appendChild(seerShow);
+      }
+      if (eerInput.value) {
+        let eerShow = document.createElement("p");
+        eerShow.textContent = "EER: " + eerInput.value;
+        hPumpAnsWrapper.appendChild(eerShow);
+      }
+      if (tempInput.value) {
+        let tempShow = document.createElement("p");
+        tempShow.textContent = "Outdoor Temp: " + tempInput.value;
+        hPumpAnsWrapper.appendChild(tempShow);
+      }
+      if (indoorTempI.value) {
+        let tempShow = document.createElement("p");
+        tempShow.textContent = "Indoor Temp: " + indoorTempI.value;
+        hPumpAnsWrapper.appendChild(tempShow);
+      }
+    }
+  
   }
   // ------------------------------------------------------------------------
-  if (acInMake.value) {
-    heatPumpId.style.display = "block";
-    let acShow = document.createElement("p");
-    let acModShow = document.createElement("p");
-    let acSerialShow = document.createElement("p");
-    let tonsShow = document.createElement("p");
-    acShow.textContent = "Make: " + acInMake.value;
-    acModShow.textContent = "Model: " + acInModel.value;
-    acSerialShow.textContent = "Serial: " + acInSerial.value;
-    tonsShow.textContent = "Tonnage: " + tons.value;
-    hPumpAnsWrapper.appendChild(acShow);
-    hPumpAnsWrapper.appendChild(acModShow);
-    hPumpAnsWrapper.appendChild(acSerialShow);
-    hPumpAnsWrapper.appendChild(tonsShow);
-    if (seerInput.value) {
-      let seerShow = document.createElement("p");
-      seerShow.textContent = "SEER: " + seerInput.value;
-      hPumpAnsWrapper.appendChild(seerShow);
-    }
-    if (eerInput.value) {
-      let eerShow = document.createElement("p");
-      eerShow.textContent = "EER: " + eerInput.value;
-      hPumpAnsWrapper.appendChild(eerShow);
-    }
-    if (tempInput.value) {
-      let tempShow = document.createElement("p");
-      tempShow.textContent = "Outdoor Temp: " + tempInput.value;
-      hPumpAnsWrapper.appendChild(tempShow);
-    }
-    if (indoorTempI.value) {
-      let tempShow = document.createElement("p");
-      tempShow.textContent = "Indoor Temp: " + indoorTempI.value;
-      hPumpAnsWrapper.appendChild(tempShow);
-    }
-  }
 
   if (packUnitCheck.checked)
     showPackageUnit(
