@@ -121,6 +121,9 @@ button{
   margin: 1em;
 }
 
+.notes{
+  border: none;
+}
 #duct-info-id{
   grid-column: 1/3;
 }
@@ -128,9 +131,7 @@ button{
 #notes{
   width: 17em;
 }
-
-.notes{
-  border: none;
+.iaq-wrap{
 }
 
 /* Greater than 360px --------------------------------------------------*/

@@ -25,6 +25,12 @@
               <label for="company-input">
                 <input id="company-input" type="text" class="big-inputs real-inputs" />Company
               </label>
+              <label for="rebate-input">
+                <input type="text" id="rebate-input" class="real-inputs">Rebate Project
+              </label>
+              <label for="sqft-input">
+                <input type="text" id="sqft-input"class='real-inputs'>SQFT Served
+              </label>
               </div>
   
           </h3>
@@ -281,6 +287,9 @@
 
             <div class="input-wrapper" id='dlt'>
 
+              <label for="dlt-method-input">
+                <input type="text" id="dlt-method-input" class="real-inputs">Method
+              </label>
               <label for="dlt-input">
                 <input
                   id="dlt-input"
@@ -289,6 +298,9 @@
                   placeholder="5%...15%...."
                 />Percent Target
               </label>
+              <label for="allow-dlt-input">
+                <input type="text" id="allow-dlt-input" class="real-inputs">Allowance
+              </label>
               <label for="leakage">
                 <input id="leakage" type="text" class="real-inputs" />Measured
                 Leakage
@@ -296,10 +308,6 @@
               <label for="open-check">
                 <input id="open-check" type="checkbox" class="real-inputs" />Open
                 Chaseway
-              </label>
-              <label for="pbs-check">
-                <input id="pbs-check" type="checkbox" class="real-inputs" />Pass By
-                Smoke
               </label>
     
               <label for="btw-floors">
@@ -319,6 +327,16 @@
                   type="checkbox"
                   class="real-inputs"
                 />Actual Airflow Method
+              </label>
+              <label for="pbs-check">
+                <input id="pbs-check" type="checkbox" class="real-inputs" />Pass By
+                Smoke
+              </label>
+              <label for="dlt-pass">
+                <input type="checkbox" id="dlt-pass" class="real-inputs">Pass
+              </label>
+              <label for="dlt-fail">
+                <input type="checkbox" id="dlt-fail" class="real-inputs">Fail
               </label>
               </div>
             </h3>
@@ -360,6 +378,12 @@
                   class="real-inputs"
                 />Weigh-In
               </label>
+              <label for="rca-pass">
+                <input type="checkbox" id="rca-pass" class="real-inputs">Pass
+              </label>
+              <label for="rca-fail">
+                <input type="checkbox" id="rca-fail" class="real-inputs">Fail
+              </label>
               </div>
             </h3>
         </div>
@@ -370,9 +394,15 @@
 
             <div class="input-wrapper" id='flow'>
 
+              <label for="allow-airflow-input">
+                <input type="text" id="allow-airflow-input" class="real-inputs">Allowance
+              </label>
               <label for="input-airflow">
                 <input id="input-airflow" type="text" class="real-inputs" />Measured
                 Airflow
+              </label>
+              <label for="250-check">
+                <input type="checkbox" id="250-check" class="real-inputs">SDHV
               </label>
               <label for="300-check">
                 <input id="300-check" type="checkbox" class="real-inputs" />300 CFM
@@ -380,11 +410,6 @@
               <label for="350-check">
                 <input id="350-check" type="checkbox" class="real-inputs" />350 CFM
               </label>
-    
-              <label for="iaq-input">
-                <input type="text" id="iaq-input" class="real-inputs" />IAQ
-              </label>
-    
               <label for="flow-remed-check">
                 <input
                   id="flow-remed-check"
@@ -392,11 +417,39 @@
                   class="real-inputs"
                 />Airflow Remediation
               </label>
+              <label for="flow-pass">
+                <input type="checkbox" id="flow-pass" class="real-inputs">Pass
+              </label>
+              <label for="flow-fail">
+                <input type="checkbox" id="flow-fail" class="real-inputs">Fail
+              </label>
+
               </div>
             </h3>
         </div>
         <!-- ----------------------------------------------------------------------- -->
 
+        <div class="iaq-wrap">
+          <h3 class="heady">IAQ &#9662
+          <div class="input-wrapper" id='iaq-wrap'>
+            <label for="allow-iaq">
+              <input type="text" id="allow-iaq" class="real-inputs">Allowance
+            </label>
+            <label for="iaq-input">
+              <input type="text" id="iaq-input" class="real-inputs" />Result
+            </label>
+            <label for="iaq-pass">
+              <input type="checkbox" id="iaq-pass" class="real-inputs">Pass
+            </label>
+            <label for="iaq-fail">
+              <input type="checkbox" id="iaq-fail" class="real-inputs">Fail
+            </label>
+
+          </div>
+        </h3>
+        </div>
+
+        <!-- ------------------------------------------------------- -->
         <div class="input-wrapper-two  id=''bd">
           <h3 class="heady">Blower Door</h3>
           <label for="bd-input">
@@ -407,14 +460,29 @@
         <!-- ------------------------------------------------------------------------- -->
 
             <div class="input-wrapper-two fwd">
-              <h3 class="heady">Fan-Watt-Draw </h3>
-
-          <label for="hard-wired">
-            <input type="checkbox" id="hard-wired" />Hard-Wired
-          </label>
-          <label for="fan-w-draw">
-            <input id="fan-w-draw" type="text" class="real-inputs" />Result
-          </label>
+              <h3 class="heady">Fan-Watt-Draw 
+              <div class="input-wrapper">
+                <label for="plug-in">
+                  <input type="checkbox" id="plug-in" class="real-inputs">Plug-In Meter
+                </label>
+                <label for="clamp-meter">
+                  <input type="checkbox" id="clamp-meter" class="real-inputs">Clamp Meter
+                </label>
+            <label for="hard-wired">
+              <input type="checkbox" id="hard-wired" />Hard-Wired
+            </label>
+            <label for="fan-w-draw">
+              <input id="fan-w-draw" type="text" class="real-inputs" />Result
+            </label>
+            <label for="fwd-pass">
+              <input type="checkbox" id="fwd-pass" class="real-inputs">Pass
+            </label>
+            <label for="fwd-fail">
+              <input type="checkbox" id="fwd-fail" class="real-inputs">Fail
+            </label>
+  
+              </div>
+            </h3>
         </div>
 
         <!-- ========================================================================== -->
@@ -534,6 +602,10 @@
         <div id="airflow-id" class="id-all">
           <h3 class="header">Airflow</h3>
           <div class="empty-space" id="flow-ans-wrapper"></div>
+        </div>
+        <div id="iaq-id" class="id-all">
+          <h3 class="header">IAQ</h3>
+          <div id="iaq-ans-wrapper" class="empty-space"></div>
         </div>
         <div id="bd-id" class="id-all">
           <h3 class="header">Blower Door</h3>
