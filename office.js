@@ -158,6 +158,7 @@ function paperWork() {
   const inputBtu = document.getElementById("input-btu");
   const outputBtu = document.getElementById("output-btu");
   const furnaceEff = document.getElementById("furnace-eff");
+  const inAtticCheck=document.getElementById('in-attic')
 
   const lockCapsCheck = document.getElementById("lock-caps-check");
   const acSecureCheck = document.getElementById("ac-secure-check");
@@ -213,20 +214,22 @@ function paperWork() {
       systemIdShow.textContent = "System Name: " + systemIdInput.value;
       genAnsWrapper.appendChild(systemIdShow);
     }
+    if(rebateInput.value){
+      let rebateShow = document.createElement("p");
+      rebateShow.textContent = "Rebate Project: " + rebateInput.value;
+      genAnsWrapper.appendChild(rebateShow);
+    }
     let dateShow = document.createElement("p");
     let adrShow = document.createElement("p");
     let companyShow = document.createElement("p");
-    let rebateShow = document.createElement("p");
     let sqftShow = document.createElement("p");
     dateShow.textContent = "Date: " + dateInput.value;
     adrShow.textContent = "Address: " + adrInput.value;
     companyShow.textContent = "Company: " + companyInput.value;
-    rebateShow.textContent = "Rebate Project: " + rebateInput.value;
     sqftShow.textContent = "SQFT Served: " + sqftInput.value;
     genAnsWrapper.appendChild(dateShow);
     genAnsWrapper.appendChild(adrShow);
     genAnsWrapper.appendChild(companyShow);
-    genAnsWrapper.appendChild(rebateShow);
     genAnsWrapper.appendChild(sqftShow);
   }
 
@@ -346,7 +349,7 @@ function paperWork() {
       eerInput,
       miniSplitAnsWrapper
     );
-  else
+  else if(hPumpCheck.checked===false){
     showFurnace(
       furInMake,
       furInModel,
@@ -355,8 +358,10 @@ function paperWork() {
       furId,
       inputBtu,
       outputBtu,
-      furAnsWrapper
+      furAnsWrapper,
+      inAtticCheck
     );
+  }
   // -------------------------------------------------------------------------------
 
   if (evapInMake.value) {
@@ -881,7 +886,8 @@ function showFurnace(
   furId,
   inputBtu,
   outputBtu,
-  furAnsWrapper
+  furAnsWrapper,
+  inAtticCheck
 ) {
   // -------------------
   if (furInMake.value) {
@@ -907,6 +913,15 @@ function showFurnace(
       oBShow.textContent = "Output BTU: " + outputBtu.value;
       furAnsWrapper.appendChild(iBShow);
       furAnsWrapper.appendChild(oBShow);
+    }
+    if(inAtticCheck.checked){
+      let inAtticShow=document.createElement('p')
+      inAtticShow.textContent='Furnace In Attic: Yes'
+      furAnsWrapper.appendChild(inAtticShow)
+    } else {
+      let inAtticShow=document.createElement('p')
+      inAtticShow.textContent='Furnace In Attic: No'
+      furAnsWrapper.appendChild(inAtticShow)
     }
   }
 }
